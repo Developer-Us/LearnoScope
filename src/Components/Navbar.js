@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../Styles/Navbar.css';
 
 
@@ -23,11 +24,12 @@ const toggleProfileOption = ()=>{
                             <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
                         </svg>
                     </button>
+                 
 
-                    <a className="navbar-brand mx-2" href="/">
+                    <Link className="navbar-brand mx-2" to="/videoFeed">
                         <img src="Logo/logo.png" alt="Logo" height="40px" />
                         <span className='mx-3'>LearnoScope</span>
-                    </a>
+                    </Link>
 
                     <div className="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
                         <form className="d-flex ">
