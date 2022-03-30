@@ -1,0 +1,35 @@
+
+@media screen and (max-width: 1077px) {
+    #loginImage{
+        display: none;
+    }
+    #Login{
+        width: 500px;
+    }
+  }
+  #label{
+    display: inline-block;
+    margin-left: 10px;
+    top: 20px;
+    background-color: rgb(244, 250, 255);
+    position: relative;
+    border-radius: 5px;
+    font-size: 14px;
+} 
+.input_tag{
+    background-color: rgb(244, 250, 255);
+}
+.custom_btn{
+    background-color: rgb(209, 233, 255);
+}
+.custom_btn:hover{
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+.google_btn{
+    background-color: rgb(209, 233, 255);
+}
+.google_btn:hover{
+    background-color: rgb(0, 0, 0);
+    color: white;
+}

@@ -1,0 +1,22 @@
+.label{
+    display: inline-block;
+    margin-left: 10px;
+    top: 12px;
+    background-color: rgb(244, 250, 255);
+    position: relative;
+    border-radius: 5px;
+    font-size: 14px;
+} 
+.input_tag{
+    background-color: rgb(244, 250, 255);
+}
+.btn_custom{
+    background-color: rgb(209, 233, 255);
+}
+.btn_custom:hover{
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+.mandatory_sign{
+    color: red;
+}

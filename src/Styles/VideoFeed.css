@@ -1,0 +1,20 @@
+
+
+  #VedioDetail {
+    display: flex;
+    /* border:3px solid green; */
+    width: 291px;
+    padding-top: 4px;
+  }
+  #VedioDetail ul li {
+    list-style: none;
+    padding-left: 1px;
+  }
+  #logo {
+    height: 40px;
+    width: 40px;
+    border: 1px solid black;
+    border-radius: 26px;
+    margin-left: 3px;
+  }
+  
