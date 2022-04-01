@@ -10,10 +10,9 @@ export default function LeftBar() {
 
         return (
             <div className='LeftBar'>
-                <div className="offcanvas offcanvas-start custom-width" data-bs-backdrop="false" tabIndex="-1" id="offcanvasLeft" aria-labelledby="offcanvasLeftLabel">
+                <div className="offcanvas offcanvas-start custom-width" data-bs-backdrop="true" tabIndex="-1" id="offcanvasLeft" aria-labelledby="offcanvasLeftLabel">
                     <div className="offcanvas-header">
                         <h5 id="offcanvasLeftLabel">LearnoScope</h5>
-                        <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <div className="offcanvas-body">
                         <Link to="/videoFeed" style={{ textDecoration: "none", color: "black" }}>
