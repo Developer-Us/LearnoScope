@@ -20,6 +20,10 @@ background-color: white;
     cursor: pointer;
 }
 
+#Backbtn{
+    display: none;
+}
+
 /* @media screen and (max-width: 850px) {
     .App_Name{
         display: none;
