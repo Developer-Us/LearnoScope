@@ -3,17 +3,16 @@ import '../Styles/LeftBar.css';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import LoggedInStatusContext from '../Context/LoggedInStatus/LoggedInStatusContext';
-//import ApplicationModeContext from '../Context/ApplicationMode/ApplicationModeContext';
 
 export default function LeftBar() {
     const is_loggedin = useContext(LoggedInStatusContext);
-   // const applicationMode = useContext(ApplicationModeContext);
+
     
     if (is_loggedin.loggedin === false) {
 
         return (
             <div className='LeftBar'>
-                <div className="offcanvas offcanvas-start custom-width" data-bs-backdrop="true" tabIndex="-1" id="offcanvasLeft" aria-labelledby="offcanvasLeftLabel">
+                <div className="offcanvas offcanvas-start custom-width"  data-bs-backdrop="true" tabIndex="-1" id="offcanvasLeft" aria-labelledby="offcanvasLeftLabel">
                     <div className="offcanvas-header">
                         <h5 id="offcanvasLeftLabel">LearnoScope</h5>
                     </div>
