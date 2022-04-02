@@ -1,0 +1,111 @@
+.VideoPlayer{
+    height: 93%;
+    width: 75%;
+    margin: 10px;
+}
+
+.VideoPlaySection{
+    width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.VideoWatchSection {
+  position: fixed;
+  top: 56px;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* border: 2px solid red; */
+  overflow-y: scroll;
+  overflow-y: overlay;
+}
+
+.Video {
+  /* border: 2px solid salmon; */
+  width: 100%;
+  height: 80%;
+}
+
+.VideoTag {
+  width: 100%;
+  height: 100%;
+}
+
+.VideoMetaData {
+  display: flex;
+  justify-content: space-between;
+  /* border: 3px solid rgb(241, 172, 116); */
+}
+
+.VideoTitle {
+  font-size: larger;
+  font-weight: bolder;
+  /* border: 3px solid gold; */
+  margin: 3px;
+  padding: 2px;
+}
+
+.LikeShareWatchLaterReportBtns span p {
+  margin: auto;
+  color: #ffffff;
+  background-color: #585858;
+  border-radius: 5px;
+  padding: 0px 5px;
+  font-size: 12px;
+  display: none;
+  margin-top: 42px;
+  margin-left: 9px;
+  position: fixed;
+}
+
+.VideoMetaBtn:hover {
+  cursor: pointer;
+}
+
+#wlBtnText {
+  width: 45px;
+  text-align: center;
+}
+
+.LikeShareWatchLaterReportBtns {
+  margin: 0px 10px;
+  padding: 3px;
+  display: flex;
+  justify-content: space-evenly;
+  /* border: 2px solid saddlebrown; */
+}
+
+.ChannelInfo {
+  margin: 10px 5px;
+  display: flex;
+  width: 97%;
+  padding: 7px;
+  background: rgb(255, 255, 255); 
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  box-shadow: 0.5px 0.5px 5px #000000;
+}
+
+.ChannelPic {
+  height: 53px;
+  width: 53px;
+  border-radius: 50%;
+  border: 1px solid rgb(0, 0, 0);
+}
+
+.ChannelName {
+  align-self: center;
+  /* border: 2px solid rgb(208, 174, 241); */
+  font-size: large;
+  font-weight: bold;
+  margin: 0px 20px;
+}
+.QuizSection {
+  /* border: 1px solid black; */
+  height: 80%;
+  width: 25%;
+  margin: 10px;
+  display: none;
+}

@@ -8,6 +8,7 @@ import Signup from './Signup';
 // import Upload from './Upload';
 import ForgetPass from './ForgetPass';
 import OTP from './OTP';
+// import VideoPlaySection from './VideoWatchSection';
 
 import {
   BrowserRouter as Router,
@@ -15,10 +16,10 @@ import {
   Route
 } from "react-router-dom";
 
-
 function App() {
   return (
     <>
+    {/* <VideoPlaySection/> */}
 
       <Router>
         <LoggedInStatusState>
