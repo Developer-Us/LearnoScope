@@ -1,4 +1,5 @@
 import LoggedInStatusState from '../Context/LoggedInStatus/LoggedInStatusState';
+import ApplicationModeState from '../Context/ApplicationMode/ApplicationModeState'
 import '../Styles/App.css';
 import Navbar from './Navbar';
 import LeftBar from './LeftBar';
@@ -23,34 +24,36 @@ function App() {
 
       <Router>
         <LoggedInStatusState>
-          <div className='App'>
-            <Navbar />
-            <LeftBar />
-            <Switch>
-              <Route exact path="/videoFeed">
-                <VideoFeed />
-              </Route>
-              <Route exact path="/">
-                <VideoFeed />
-              </Route>
-              <Route exact path="/signup">
-                <Signup />
-              </Route>
-              <Route exact path="/login">
-                <Login />
-              </Route>
-              {/* <Route exact path="/upload">
+          <ApplicationModeState>
+            <div className='App'>
+              <Navbar />
+              <LeftBar />
+              <Switch>
+                <Route exact path="/videoFeed">
+                  <VideoFeed />
+                </Route>
+                <Route exact path="/">
+                  <VideoFeed />
+                </Route>
+                <Route exact path="/signup">
+                  <Signup />
+                </Route>
+                <Route exact path="/login">
+                  <Login />
+                </Route>
+                {/* <Route exact path="/upload">
                 <Upload />
               </Route> */}
-              <Route exact path="/forgetPass">
-                <ForgetPass />
-              </Route>
-              <Route exact path="/otp">
-                <OTP />
-              </Route>
-            </Switch>
+                <Route exact path="/forgetPass">
+                  <ForgetPass />
+                </Route>
+                <Route exact path="/otp">
+                  <OTP />
+                </Route>
+              </Switch>
 
-          </div>
+            </div>
+          </ApplicationModeState>
         </LoggedInStatusState>
       </Router>
 
