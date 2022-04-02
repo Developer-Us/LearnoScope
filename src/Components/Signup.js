@@ -2,7 +2,10 @@ import React from "react";
 import '../Styles/Signup.css';
 import { useEffect } from 'react';
 
+
 export default function Signup() {
+
+
   useEffect(() => {
     let windowWidth = window.matchMedia("(min-width: 1077px)");
     if (windowWidth.matches) {
@@ -12,8 +15,9 @@ export default function Signup() {
       document.getElementById("Signup").className = "w-75 shadow p-3 mb-5 bg-body mx-auto my-5 t";
     }
   });
+
   return (
-    <div id="Signup" className="w-25 shadow p-3 mb-5 bg-body mx-auto my-5 " style={{ height: "58rem", display: "flex" }}>
+    <div id="Signup" className="w-25 shadow p-3 mb-5 bg-body mx-auto my-5 " style={{ height: "58rem", display: "flex"}}>
       <div className='container mx-3 my-3'>
         <form method="post" encType="multipart/form-data" action="https://developerus.herokuapp.com/register/">
           <div id="Proflie_picture_selector" className="text-center"><svg xmlns="http://www.w3.org/2000/svg" width="90" height="90" fill="currentColor" className="bi bi-person-circle" viewBox="0 0 16 16">
