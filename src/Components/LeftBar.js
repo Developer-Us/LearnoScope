@@ -3,9 +3,12 @@ import '../Styles/LeftBar.css';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import LoggedInStatusContext from '../Context/LoggedInStatus/LoggedInStatusContext';
+import ApplicationModeContext from '../Context/ApplicationMode/ApplicationModeContext';
 
 export default function LeftBar() {
     const is_loggedin = useContext(LoggedInStatusContext);
+    const applicationMode = useContext(ApplicationModeContext);
+    
     if (is_loggedin.loggedin === false) {
 
         return (

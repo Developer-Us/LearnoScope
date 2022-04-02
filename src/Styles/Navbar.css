@@ -1,6 +1,10 @@
-.navbar-custom{
+.navbar-custom-light{
 background-color: white;
 }
+
+.navbar-custom-dark{
+    background-color: rgb(0, 0, 0);
+    }
 
 .form-control-customize{
     width: 390px ; 
@@ -22,6 +26,9 @@ background-color: white;
 
 #Backbtn{
     display: none;
+}
+#ModeIcon{
+    cursor: pointer;
 }
 
 /* @media screen and (max-width: 850px) {
