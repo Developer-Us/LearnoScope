@@ -2,11 +2,7 @@ import React from 'react'
 import '../Styles/VideoFeed.css';
 import '../Styles/VideoCard.css';
 
-
-
-
 export default function VideoCard() {
-
 
     return (
             <div id="videoCard"  className="card my-3 mx-3 shadow  bg-body rounded" style={{ "width": "21rem" }}>
