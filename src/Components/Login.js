@@ -35,7 +35,7 @@ export default function Login() {
                 },
                 body: JSON.stringify(userObject),
             }).then(response => response.json()).then((data) => {
-                if (data.status == 200) {
+                if (data.status === 200) {
                     is_loggedin.setLoggedin(true);
                     alert("Logged in Successfully !");
                     document.getElementById('LeftBarTogglerIcon').click();
