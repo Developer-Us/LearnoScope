@@ -17,13 +17,13 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  /* border: 2px solid red; */
+  border: 2px solid red;
   overflow-y: scroll;
   overflow-y: overlay;
 }
 
 .Video {
-  /* border: 2px solid salmon; */
+  border: 2px solid salmon;
   width: 100%;
   height: 80%;
 }
@@ -33,16 +33,16 @@
   height: 100%;
 }
 
-.VideoMetaData {
+/* .VideoMetaData {
   display: flex;
   justify-content: space-between;
-  /* border: 3px solid rgb(241, 172, 116); */
+  border: 3px solid rgb(241, 172, 116);
 }
 
 .VideoTitle {
   font-size: larger;
   font-weight: bolder;
-  /* border: 3px solid gold; */
+  border: 3px solid gold;
   margin: 3px;
   padding: 2px;
 }
@@ -74,7 +74,7 @@
   padding: 3px;
   display: flex;
   justify-content: space-evenly;
-  /* border: 2px solid saddlebrown; */
+  border: 2px solid saddlebrown;
 }
 
 .ChannelInfo {
@@ -97,15 +97,15 @@
 
 .ChannelName {
   align-self: center;
-  /* border: 2px solid rgb(208, 174, 241); */
+  border: 2px solid rgb(208, 174, 241);
   font-size: large;
   font-weight: bold;
   margin: 0px 20px;
 }
 .QuizSection {
-  /* border: 1px solid black; */
+  border: 1px solid black;
   height: 80%;
   width: 25%;
   margin: 10px;
   display: none;
-}
+}  */

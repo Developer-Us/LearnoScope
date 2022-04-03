@@ -3,7 +3,7 @@ import '../Styles/VideoWatchSection.css';
 
 export default function VideoWatchSection() {
   return (
-  <>
+    <>
       {/* <div className="VideoWatchSection">
         <div className="VideoPlaySection">
           <div className="VideoPlayer">
@@ -28,6 +28,23 @@ export default function VideoWatchSection() {
           Quiz Section
         </div>
       </div>     */}
-  </>
+      <div class="card">
+        <div className="VideoWatchSection">
+          <div className="VideoPlaySection">
+            <div className="VideoPlayer">
+              <div className="Video">
+                <video className="VideoTag" src="Sample Video/sampleVideo.mov" type="video/mp4" controls></video>
+              </div>
+              <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+            </div>
+          </div>
+
+          
+        </div>
+      </div>
+    </>
   )
 }

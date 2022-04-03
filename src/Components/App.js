@@ -1,28 +1,28 @@
-import LoggedInStatusState from '../Context/LoggedInStatus/LoggedInStatusState';
-import ApplicationModeState from '../Context/ApplicationMode/ApplicationModeState'
+// import LoggedInStatusState from '../Context/LoggedInStatus/LoggedInStatusState';
+// import ApplicationModeState from '../Context/ApplicationMode/ApplicationModeState'
 import '../Styles/App.css';
-import Navbar from './Navbar';
-import LeftBar from './LeftBar';
-import VideoFeed from './VideoFeed';
-import Login from './Login';
-import Signup from './Signup';
+// import Navbar from './Navbar';
+// import LeftBar from './LeftBar';
+// import VideoFeed from './VideoFeed';
+// import Login from './Login';
+// import Signup from './Signup';
 // import Upload from './Upload';
-import ForgetPass from './ForgetPass';
-import OTP from './OTP';
-// import VideoPlaySection from './VideoWatchSection';
+// import ForgetPass from './ForgetPass';
+// import OTP from './OTP';
+import VideoWatchSection from './VideoWatchSection';
 
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
+// import {
+//   BrowserRouter as Router,
+//   Switch,
+//   Route
+// } from "react-router-dom";
 
 function App() {
   return (
     <>
-    {/* <VideoPlaySection/> */}
+    <VideoWatchSection/>
 
-      <Router>
+      {/* <Router>
         <LoggedInStatusState>
           <ApplicationModeState>
             <div className='App'>
@@ -41,9 +41,9 @@ function App() {
                 <Route exact path="/login">
                   <Login />
                 </Route>
-                {/* <Route exact path="/upload">
+                <Route exact path="/upload">
                 <Upload />
-              </Route> */}
+              </Route>
                 <Route exact path="/forgetPass">
                   <ForgetPass />
                 </Route>
@@ -55,7 +55,7 @@ function App() {
             </div>
           </ApplicationModeState>
         </LoggedInStatusState>
-      </Router>
+      </Router> */}
 
     </>
   );
