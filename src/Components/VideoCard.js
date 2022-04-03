@@ -1,5 +1,8 @@
 import React from 'react'
 import '../Styles/VideoFeed.css';
+import '../Styles/VideoCard.css';
+
+
 
 
 export default function VideoCard() {

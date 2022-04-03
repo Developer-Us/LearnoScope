@@ -9,7 +9,6 @@ import Signup from './Signup';
 // import Upload from './Upload';
 import ForgetPass from './ForgetPass';
 import OTP from './OTP';
-import Bookmark from './Bookmark';
 
 import {
   BrowserRouter as Router,
@@ -21,8 +20,42 @@ import {
 function App() {
   return (
     <>
-      {/* arrange code propely before pushing it */}
-      <Bookmark/>
+
+      <Router>
+        <LoggedInStatusState>
+          <ApplicationModeState>
+            <div className='App'>
+              <Navbar />
+              <LeftBar />
+              <Switch>
+                <Route exact path="/videoFeed">
+                  <VideoFeed />
+                </Route>
+                <Route exact path="/">
+                  <VideoFeed />
+                </Route>
+                <Route exact path="/signup">
+                  <Signup />
+                </Route>
+                <Route exact path="/login">
+                  <Login />
+                </Route>
+                {/* <Route exact path="/upload">
+                <Upload />
+              </Route> */}
+                <Route exact path="/forgetPass">
+                  <ForgetPass />
+                </Route>
+                <Route exact path="/otp">
+                  <OTP />
+                </Route>
+              </Switch>
+
+            </div>
+          </ApplicationModeState>
+        </LoggedInStatusState>
+      </Router>
+
     </>
   );
 }
