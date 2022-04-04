@@ -10,6 +10,7 @@ import '../Styles/App.css';
 // import ForgetPass from './ForgetPass';
 // import OTP from './OTP';
 import VideoWatchSection from './VideoWatchSection';
+// import SearchResult from './SearchResult';
 
 // import {
 //   BrowserRouter as Router,
@@ -20,6 +21,7 @@ import VideoWatchSection from './VideoWatchSection';
 function App() {
   return (
     <>
+    {/* <SearchResult/> */}
     <VideoWatchSection/>
 
       {/* <Router>

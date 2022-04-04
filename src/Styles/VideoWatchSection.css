@@ -1,14 +1,3 @@
-.VideoPlayer{
-    height: 93%;
-    width: 75%;
-    margin: 10px;
-}
-
-.VideoPlaySection{
-    width: 100%;
-  height: 100%;
-  display: flex;
-}
 
 .VideoWatchSection {
   position: fixed;
@@ -17,13 +6,25 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  border: 2px solid red;
+  /* border: 2px solid red; */
   overflow-y: scroll;
   overflow-y: overlay;
 }
 
+.VideoPlaySection{
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.VideoPlayer{
+    height: 93%;
+    width: 75%;
+    margin: 10px;
+}
+
 .Video {
-  border: 2px solid salmon;
+  /* border: 2px solid salmon; */
   width: 100%;
   height: 80%;
 }
@@ -33,19 +34,46 @@
   height: 100%;
 }
 
+#VideoTitle {
+  font-size: larger;
+  font-weight: bolder;
+}
+
+.VideoMetaBtn:hover {
+  cursor: pointer;
+}
+
+#LikeBtnText{
+  background-color: rgb(125, 181, 255);
+  font-size: small;
+  font-weight: bold;
+}
+
+#ShareBtnText{
+  background-color: rgb(125, 181, 255);
+  font-size: small;
+  font-weight: bold;
+}
+
+#RemindBtnText{
+  background-color: rgb(125, 181, 255);
+  font-size: small;
+  font-weight: bold;
+}
+
+#ReportBtnText{
+  background-color: rgb(125, 181, 255);
+  font-size: small;
+  font-weight: bold;
+}
+
 /* .VideoMetaData {
   display: flex;
   justify-content: space-between;
   border: 3px solid rgb(241, 172, 116);
 }
 
-.VideoTitle {
-  font-size: larger;
-  font-weight: bolder;
-  border: 3px solid gold;
-  margin: 3px;
-  padding: 2px;
-}
+
 
 .LikeShareWatchLaterReportBtns span p {
   margin: auto;
@@ -60,9 +88,7 @@
   position: fixed;
 }
 
-.VideoMetaBtn:hover {
-  cursor: pointer;
-}
+
 
 #wlBtnText {
   width: 45px;
