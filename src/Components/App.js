@@ -1,5 +1,5 @@
 import LoggedInStatusState from '../Context/LoggedInStatus/LoggedInStatusState';
-import ApplicationModeState from '../Context/ApplicationMode/ApplicationModeState'
+import ApplicationModeState from '../Context/ApplicationMode/ApplicationModeState';
 import '../Styles/App.css';
 import Navbar from './Navbar';
 import LeftBar from './LeftBar';
@@ -9,6 +9,8 @@ import Signup from './Signup';
 // import Upload from './Upload';
 import ForgetPass from './ForgetPass';
 import OTP from './OTP';
+// import VideoWatchSection from './VideoWatchSection';
+// import SearchResult from './SearchResult';
 
 import {
   BrowserRouter as Router,
@@ -16,10 +18,11 @@ import {
   Route
 } from "react-router-dom";
 
-
 function App() {
   return (
     <>
+    {/* <SearchResult/> */}
+    {/* <VideoWatchSection/> */}
 
       <Router>
         <LoggedInStatusState>
