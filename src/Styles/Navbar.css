@@ -1,15 +1,18 @@
 .navbar-custom-light{
 background-color: white;
+padding: 6px 2px;
 }
 
 .navbar-custom-dark{
-    background-color: black;
+    background-color: #202020;
+    padding: 12px 2px;
     }
 
 .form-control-customize{
     width: 390px ; 
     border-radius:5px;
     border: none;
+    /* background-color: rgb(1, 5, 27); */
     background-color: rgb(230, 230, 230);
     padding: 10px;
 }

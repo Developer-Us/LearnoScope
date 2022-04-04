@@ -61,7 +61,7 @@ export default function Login() {
     return (
         <>
             <div id="Login" className="w-50 shadow p-3 mb-5 bg-body mx-auto my-5 " style={{ height: "30rem", display: "flex" }}>
-                <img id="loginImage" src="Images/login.jpg" width="50%" alt="" />
+                <img id="loginImage" src="Images/Login.gif" width="50%" alt="" />
                 <div className='container mx-3 my-3'>
                     <div className='fs-5 text-center'>Login</div>
                     <hr />
