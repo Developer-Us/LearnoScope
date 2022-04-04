@@ -1,13 +1,13 @@
 import React from 'react';
 import '../Styles/LeftBar.css';
 import { useContext } from 'react';
+//import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import LoggedInStatusContext from '../Context/LoggedInStatus/LoggedInStatusContext';
 
 export default function LeftBar() {
-    const is_loggedin = useContext(LoggedInStatusContext);
-
-    
+    const is_loggedin = useContext(LoggedInStatusContext);   
+   
     if (is_loggedin.loggedin === false) {
 
         return (
