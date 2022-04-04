@@ -1,11 +1,10 @@
-import React from 'react'
-import '../Styles/VideoFeed.css';
-import '../Styles/VideoCard.css';
+import React from "react";
+import '../Styles/BookmarkContainer.css';
 
-export default function VideoCard() {
-
-    return (
-            <div id="videoCard"  className="card my-3 mx-3 shadow  bg-body rounded" style={{ "width": "21rem" }}>
+export default function Bookmark() {
+  return (
+    <>
+    <div id="videoCard"  className="card my-3 mx-3 shadow  bg-body rounded" style={{ "width": "21rem" }}>
                 <img src="Images/VedioThumnail.jpg" bgcolor="grey" alt="loading.." style={{ "width": "21rem" }} />
 
                 <div id="VedioDetail">
@@ -17,7 +16,10 @@ export default function VideoCard() {
                     </ul>
                 </div>
             </div>
-    
-    )
+    </>
+  );
 }
+
+
+
 

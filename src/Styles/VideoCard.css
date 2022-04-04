@@ -1,0 +1,5 @@
+#videoCard:hover{
+    transform: scale(1.2);
+    transition: transform .4s;
+    cursor: pointer;
+}
