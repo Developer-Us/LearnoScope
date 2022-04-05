@@ -1,5 +1,5 @@
 import React from "react";
-import "../Styles/OTP.css";
+// import "../Styles/OTP.css";
 
 export default function OTP() {
 

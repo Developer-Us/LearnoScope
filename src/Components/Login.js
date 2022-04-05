@@ -2,13 +2,14 @@ import React from 'react'
 import '../Styles/Login.css';
 import { useEffect } from 'react';
 import { useContext } from 'react';
-//import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import LoggedInStatusContext from '../Context/LoggedInStatus/LoggedInStatusContext';
 
 
 
 export default function Login() {
     const is_loggedin = useContext(LoggedInStatusContext);
+
 
     const handleUserLogin = (e) => {
         e.preventDefault();
@@ -41,7 +42,7 @@ export default function Login() {
                     document.getElementById('LeftBarTogglerIcon').click();
                 }
                 else {
-                    alert(data.response)
+                    alert(data.response);
                 }
             });
         }

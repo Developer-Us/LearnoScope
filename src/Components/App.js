@@ -9,8 +9,9 @@ import Signup from './Signup';
 // import Upload from './Upload';
 import ForgetPass from './ForgetPass';
 import OTP from './OTP';
-// import VideoWatchSection from './VideoWatchSection';
+import VideoWatchSection from './VideoWatchSection';
 // import SearchResult from './SearchResult';
+
 
 import {
   BrowserRouter as Router,
@@ -18,24 +19,26 @@ import {
   Route
 } from "react-router-dom";
 
-function App() {
+function App() { 
+  
   return (
     <>
-    {/* <SearchResult/> */}
-    {/* <VideoWatchSection/> */}
-
       <Router>
         <LoggedInStatusState>
           <ApplicationModeState>
             <div className='App'>
               <Navbar />
               <LeftBar />
+
               <Switch>
                 <Route exact path="/videoFeed">
                   <VideoFeed />
                 </Route>
                 <Route exact path="/">
-                  <VideoFeed />
+                    <VideoFeed/>
+                </Route>
+                <Route exact path="/videoWatchSection">
+                  <VideoWatchSection />
                 </Route>
                 <Route exact path="/signup">
                   <Signup />
@@ -44,8 +47,8 @@ function App() {
                   <Login />
                 </Route>
                 {/* <Route exact path="/upload">
-                <Upload />
-              </Route> */}
+                  <Upload />
+                </Route> */}
                 <Route exact path="/forgetPass">
                   <ForgetPass />
                 </Route>
@@ -53,7 +56,6 @@ function App() {
                   <OTP />
                 </Route>
               </Switch>
-
             </div>
           </ApplicationModeState>
         </LoggedInStatusState>

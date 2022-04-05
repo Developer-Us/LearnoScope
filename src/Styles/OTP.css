@@ -2,7 +2,7 @@
     height: 100vh
 }
 
-.card {
+ .card {
     width: 400px;
     border: none;
     height: 300px;
@@ -11,7 +11,7 @@
     display: flex;
     justify-content: center;
     align-items: center
-}
+} 
 
 .card h6 {
     color: red;
