@@ -33,7 +33,8 @@ export default function Login() {
         userData.setUserEmail(document.getElementById("loginEmail").value);
         let userObject = {
             "username": document.getElementById("loginUsername").value,
-            "password": document.getElementById("loginPassword").value
+            "password": document.getElementById("loginPassword").value,
+            "email":document.getElementById("loginEmail").value
         }
 
         localStorage.setItem("userEmail", document.getElementById("loginEmail").value);
