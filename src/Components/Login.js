@@ -2,6 +2,7 @@ import React from 'react'
 import '../Styles/Login.css';
 import { useEffect } from 'react';
 import { useContext } from 'react';
+import { useState } from 'react';
 // import { Link } from 'react-router-dom';
 import LoggedInStatusContext from '../Context/LoggedInStatus/LoggedInStatusContext';
 
@@ -13,7 +14,6 @@ export default function Login() {
 
     const handleUserLogin = (e) => {
         e.preventDefault();
-
         if (document.getElementById('loginUsername').value.length === 0) {
             alert('Username Cannot be empty');
         }
@@ -24,12 +24,17 @@ export default function Login() {
             alert('password field Cannot be empty');
         }
         else {
-            let userObject = {
-                "username": document.getElementById("loginUsername").value,
-                "password": document.getElementById("loginPassword").value
-            }
+            fetchData();
+        }
+    }
 
-            fetch('https://developerus.herokuapp.com/loginUser/', {
+    async function fetchData() {
+        let userObject = {
+            "username": document.getElementById("loginUsername").value,
+            "password": document.getElementById("loginPassword").value
+        }
+
+        await fetch('https://developerus.herokuapp.com/loginUser/', {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
@@ -38,14 +43,13 @@ export default function Login() {
             }).then(response => response.json()).then((data) => {
                 if (data.status === 200) {
                     is_loggedin.setLoggedin(true);
-                    alert("Logged in Successfully !");
-                    document.getElementById('LeftBarTogglerIcon').click();
+                    document.getElementById("Application-logo").click();
+                    document.getElementById("GreetingAlert").style.display="block";
                 }
                 else {
                     alert(data.response);
                 }
             });
-        }
     }
 
     useEffect(() => {
@@ -88,13 +92,13 @@ export default function Login() {
                         {/* </Link> */}
 
 
-
                         {/* <div className='text-center'>
                             <button type="button" className=" loginBtn btn btn-info my-2 mx-2 google_btn" style={{ "alignSelf": "center" }}><img className="mx-2" src="Images/icon-google.png" height="35px" alt=""/>Sign with Google</button>
                         </div> */}
                     </form>
                 </div>
             </div>
+
         </>
     )
 }

@@ -114,7 +114,7 @@ export default function Navbar() {
                                 </svg>
                             </button>
     
-                            <Link className="navbar-brand mx-2" to="/videoFeed">
+                            <Link id="Application-logo" className="navbar-brand mx-2" to="/videoFeed">
                                 <img id='LearnoScopeLogo' src="Logo/logo.png" alt="Logo" height="40px" />
                                 <span className='App_Name mx-3' id='AppName'>LearnoScope</span>
                             </Link>
@@ -190,7 +190,7 @@ export default function Navbar() {
                                 </svg>
                             </button>
     
-                            <Link className="navbar-brand mx-2" to="/videoFeed">
+                            <Link id="Application-logo" className="navbar-brand mx-2" to="/videoFeed">
                                 <img id='LearnoScopeLogo' src="Logo/logo.png" alt="Logo" height="40px" />
                                 <span className='App_Name mx-3' id='AppName'>LearnoScope</span>
                             </Link>
