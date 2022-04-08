@@ -1,8 +1,5 @@
 import React from 'react';
-import Spinner from './Spinner';
-
 import VideoCard from './VideoCard';
-
 
 export default function VideoFeed(props) {
 
