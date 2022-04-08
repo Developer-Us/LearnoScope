@@ -1,8 +1,18 @@
 import React from 'react';
+import { useEffect } from 'react';
 import VideoCard from './VideoCard';
+import { useContext } from 'react';
+import LoggedInStatusContext from '../Context/LoggedInStatus/LoggedInStatusContext';
+
 
 export default function VideoFeed(props) {
+    const is_loggedin = useContext(LoggedInStatusContext);   
 
+ useEffect(() => {
+    if(localStorage.getItem("userEmail")!== null){
+        is_loggedin.setLoggedin(true);
+    }
+ }, )
  
 
     return (

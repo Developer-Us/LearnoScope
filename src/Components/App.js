@@ -1,5 +1,6 @@
 import LoggedInStatusState from '../Context/LoggedInStatus/LoggedInStatusState';
 import ApplicationModeState from '../Context/ApplicationMode/ApplicationModeState';
+import UserDataState from '../Context/UserData/UserDataState';
 import '../Styles/App.css';
 import Navbar from './Navbar';
 import LeftBar from './LeftBar';
@@ -25,11 +26,11 @@ function App() {
     <>
       <Router>
         <LoggedInStatusState>
+          <UserDataState>
           <ApplicationModeState>
             <div className='App'>
               <Navbar />
               <LeftBar />
-
               <Switch>
                 <Route exact path="/videoFeed">
                   <VideoFeed />
@@ -58,6 +59,7 @@ function App() {
               </Switch>
             </div>
           </ApplicationModeState>
+          </UserDataState>
         </LoggedInStatusState>
       </Router>
 

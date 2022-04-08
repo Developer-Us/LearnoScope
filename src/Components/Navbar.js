@@ -4,6 +4,7 @@ import '../Styles/Navbar.css';
 import { useEffect } from 'react';
 import { useContext } from 'react';
 import LoggedInStatusContext from '../Context/LoggedInStatus/LoggedInStatusContext';
+import UserDataContext from '../Context/UserData/UserDataContext';
 import ApplicationModeContext from '../Context/ApplicationMode/ApplicationModeContext';
 
 
@@ -12,6 +13,7 @@ import ApplicationModeContext from '../Context/ApplicationMode/ApplicationModeCo
 export default function Navbar() {
     const is_loggedin = useContext(LoggedInStatusContext);
     const applicationMode = useContext(ApplicationModeContext);
+    const userData = useContext(UserDataContext);
 
     const toggleProfileOption = () => {
         if (document.getElementById("profileDropdown").style.display === "none") {
@@ -21,6 +23,36 @@ export default function Navbar() {
             document.getElementById("profileDropdown").style.display = "none";
         }
     }
+
+    //for user logout
+    async function handleUserLogout() {
+        console.log(userData.userEmail);
+
+        let loginData = {
+            "email": localStorage.getItem("userEmail"),
+        }
+        
+        localStorage.removeItem("userEmail");
+
+        await fetch('https://developerus.herokuapp.com/logoutUser/', {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(loginData),
+            }).then(response => response.json()).then((data) => {
+                if (data.status === 200) {
+                    is_loggedin.setLoggedin(false);
+                    document.getElementById("leftBar-LoginBtn").click();
+                    document.getElementById("logoutAlert").style.display="block";
+                    toggleProfileOption();
+                }
+                else {
+                    alert(data.response);
+                }
+            });
+    }
+
 
     useEffect(() => {
         let windowWidth = window.matchMedia("(max-width: 430px)");
@@ -100,8 +132,8 @@ export default function Navbar() {
             document.getElementById('Navbar').style.transition = "all 1s ease-out";
         }
     }
-  
-    if(is_loggedin.loggedin === false){
+
+    if (is_loggedin.loggedin === false) {
         return (
             <div>
                 <nav id="Navbar" className={applicationMode.mode === "dark" ? "my-2 mx-2 navbar-dark navbar-custom-dark align-items-center" : "my-2 mx-2 navbar-light navbar-custom-light align-items-center"} >
@@ -113,13 +145,13 @@ export default function Navbar() {
                                     <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
                                 </svg>
                             </button>
-    
+
                             <Link id="Application-logo" className="navbar-brand mx-2" to="/videoFeed">
                                 <img id='LearnoScopeLogo' src="Logo/logo.png" alt="Logo" height="40px" />
                                 <span className='App_Name mx-3' id='AppName'>LearnoScope</span>
                             </Link>
                         </div>
-    
+
                         <div className="my-auto" id="">
                             <form className="d-flex " id='Nav_SearchBar'>
                                 {/* Search Bar */}
@@ -128,8 +160,8 @@ export default function Navbar() {
                                         <path fillRule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z" />
                                     </svg>
                                 </button>
-    
-    
+
+
                                 <input id='SearchBar' className="Search_Bar form-control-customize me-2" type="search" placeholder="Search" aria-label="Search" />
                                 <button id="SearchIcon" className={applicationMode.mode === "light" ? "btn btn-outline-dark p-2" : "btn btn-outline-light p-2"} type="button" onClick={SearchHandle}>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" className="bi bi-search" viewBox="0 0 16 16">
@@ -145,29 +177,29 @@ export default function Navbar() {
                                     <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z" />
                                 </svg>
                             </div>
-    
-    
+
+
                             {/* user Dashboard/menu */}
                             <div className="mx-2" id='UserDashBoard'>
                                 <svg xmlns="http://www.w3.org/2000/svg" style={{ "cursor": "pointer" }} onClick={toggleProfileOption} width="30" height="30" fill={applicationMode.mode === "dark" ? "white" : "dark"} className="bi bi-person-circle" viewBox="0 0 16 16">
                                     <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
                                     <path fillRule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
                                 </svg>
-    
+
                                 <div id="profileDropdown" className="card my-2 shadow p-3 mb-5 bg-body" style={{ "height": "auto", "width": "10rem", "position": "absolute", "zIndex": 5, "right": 11, "display": "none" }}>
                                     <div id="profileDropdownBox" className="card-body">
-                                        <Link to="/login" style={{textDecoration:"none",listStyle:"none",color:"black"}}>
-                                        <p className="userProfileOptions">
-                                            Login
-                                        </p>
+                                        <Link to="/login" style={{ textDecoration: "none", listStyle: "none", color: "black" }}>
+                                            <p className="userProfileOptions">
+                                                Login
+                                            </p>
                                         </Link>
-                                        
-                                        <Link to="/signup"style={{textDecoration:"none",listStyle:"none",color:"black"}}>
-                                        <p className="userProfileOptions">
-                                            Signup
-                                        </p>
+
+                                        <Link to="/signup" style={{ textDecoration: "none", listStyle: "none", color: "black" }}>
+                                            <p className="userProfileOptions">
+                                                Signup
+                                            </p>
                                         </Link>
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -177,7 +209,7 @@ export default function Navbar() {
             </div>
         )
     }
-    else{
+    else {
         return (
             <div>
                 <nav id="Navbar" className={applicationMode.mode === "dark" ? "my-2 mx-2 navbar-dark navbar-custom-dark align-items-center" : "my-2 mx-2 navbar-light navbar-custom-light align-items-center"} >
@@ -189,13 +221,13 @@ export default function Navbar() {
                                     <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
                                 </svg>
                             </button>
-    
+
                             <Link id="Application-logo" className="navbar-brand mx-2" to="/videoFeed">
                                 <img id='LearnoScopeLogo' src="Logo/logo.png" alt="Logo" height="40px" />
                                 <span className='App_Name mx-3' id='AppName'>LearnoScope</span>
                             </Link>
                         </div>
-    
+
                         <div className="my-auto" id="">
                             <form className="d-flex " id='Nav_SearchBar'>
                                 {/* Search Bar */}
@@ -204,8 +236,8 @@ export default function Navbar() {
                                         <path fillRule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z" />
                                     </svg>
                                 </button>
-    
-    
+
+
                                 <input id='SearchBar' className="Search_Bar form-control-customize me-2" type="search" placeholder="Search" aria-label="Search" />
                                 <button id="SearchIcon" className={applicationMode.mode === "light" ? "btn btn-outline-dark p-2" : "btn btn-outline-light p-2"} type="button" onClick={SearchHandle}>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" className="bi bi-search" viewBox="0 0 16 16">
@@ -221,22 +253,22 @@ export default function Navbar() {
                                     <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z" />
                                 </svg>
                             </div>
-    
-    
+
+
                             {/* user Dashboard/menu */}
                             <div className="mx-2" id='UserDashBoard'>
                                 <svg xmlns="http://www.w3.org/2000/svg" style={{ "cursor": "pointer" }} onClick={toggleProfileOption} width="30" height="30" fill={applicationMode.mode === "dark" ? "white" : "dark"} className="bi bi-person-circle" viewBox="0 0 16 16">
                                     <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
                                     <path fillRule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
                                 </svg>
-    
+
                                 <div id="profileDropdown" className="card my-2 shadow p-3 mb-5 bg-body" style={{ "height": "auto", "width": "10rem", "position": "absolute", "zIndex": 5, "right": 11, "display": "none" }}>
                                     <div id="profileDropdownBox" className="card-body">
-                                        <p  className="userProfileOptions">
-                                           Your Profile
+                                        <p className="userProfileOptions">
+                                            Your Profile
                                         </p>
-                                        <p id="userProfileOption-Logout" className="userProfileOptions">
-                                           Logout
+                                        <p onClick={handleUserLogout} id="userProfileOption-Logout" className="userProfileOptions">
+                                            Logout
                                         </p>
                                     </div>
                                 </div>
@@ -248,5 +280,5 @@ export default function Navbar() {
         )
     }
 
-   
+
 }

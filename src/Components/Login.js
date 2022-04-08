@@ -4,11 +4,13 @@ import { useEffect } from 'react';
 import { useContext } from 'react';
 // import { Link } from 'react-router-dom';
 import LoggedInStatusContext from '../Context/LoggedInStatus/LoggedInStatusContext';
+import UserDataContext from '../Context/UserData/UserDataContext';
 
 
 
 export default function Login() {
     const is_loggedin = useContext(LoggedInStatusContext);
+    const userData = useContext(UserDataContext);
 
 
     const handleUserLogin = (e) => {
@@ -23,32 +25,35 @@ export default function Login() {
             alert('password field Cannot be empty');
         }
         else {
-            fetchData();
+            loginUser();
         }
     }
 
-    async function fetchData() {
+    async function loginUser() {
+        userData.setUserEmail(document.getElementById("loginEmail").value);
         let userObject = {
             "username": document.getElementById("loginUsername").value,
             "password": document.getElementById("loginPassword").value
         }
 
+        localStorage.setItem("userEmail", document.getElementById("loginEmail").value);
+
         await fetch('https://developerus.herokuapp.com/loginUser/', {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(userObject),
-            }).then(response => response.json()).then((data) => {
-                if (data.status === 200) {
-                    is_loggedin.setLoggedin(true);
-                    document.getElementById("Application-logo").click();
-                    document.getElementById("GreetingAlert").style.display="block";
-                }
-                else {
-                    alert(data.response);
-                }
-            });
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(userObject),
+        }).then(response => response.json()).then((data) => {
+            if (data.status === 200) {
+                is_loggedin.setLoggedin(true);
+                document.getElementById("Application-logo").click();
+                document.getElementById("GreetingAlert").style.display = "block";
+            }
+            else {
+                alert(data.response);
+            }
+        });
     }
 
     useEffect(() => {
@@ -64,6 +69,12 @@ export default function Login() {
 
     return (
         <>
+              {/* this will be visible if user logs out  */}
+            <div id="logoutAlert" style={{ display: "none" }} className="alert alert-info alert-dismissible fade show" role="alert">
+                Logged out Successfully :)
+                <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+
             <div id="Login" className="w-50 shadow p-3 mb-5 bg-body mx-auto my-5 " style={{ height: "30rem", display: "flex" }}>
                 <img id="loginImage" src="Images/Login.gif" width="50%" alt="" />
                 <div className='container mx-3 my-3'>

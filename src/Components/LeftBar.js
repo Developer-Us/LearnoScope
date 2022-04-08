@@ -35,7 +35,7 @@ export default function LeftBar() {
 
                             <div>
                                 <Link to="/login" style={{ textDecoration: "none", color: "black" }}>
-                                    <div className='leftbar-option'>Login</div>
+                                    <div id="leftBar-LoginBtn" className='leftbar-option'>Login</div>
                                 </Link>
 
                                 <Link to="/signUp" style={{ textDecoration: "none", color: "black" }}>
