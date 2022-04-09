@@ -1,20 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Fruktur&family=Manrope:wght@200&family=Poppins:wght@200;300;400&family=Quicksand&family=Shadows+Into+Light&family=Sigmar+One&family=Urbanist:wght@200&family=Zen+Kurenaido&display=swap");
 
-
-  #VedioDetail {
-    display: flex;
-    /* border:3px solid green; */
-    width: 291px;
-    padding-top: 4px;
-  }
-  #VedioDetail ul li {
-    list-style: none;
-    padding-left: 1px;
-  }
-  #logo {
-    height: 40px;
-    width: 40px;
-    border: 1px solid black;
-    border-radius: 26px;
-    margin-left: 3px;
-  }
-  
+#VedioDetail {
+  display: flex;
+  /* border:3px solid green; */
+  width: 291px;
+  padding-top: 4px;
+}
+#VedioDetail ul li {
+  list-style: none;
+  padding-left: 1px;
+}
+#logo {
+  height: 40px;
+  width: 40px;
+  border: 1px solid black;
+  border-radius: 26px;
+  margin-left: 3px;
+}
+#wishUser {
+  background-color: rgb(62, 162, 249);
+  font-family: "Quicksand", sans-serif;
+}

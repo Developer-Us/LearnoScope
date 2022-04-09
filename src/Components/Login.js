@@ -38,6 +38,7 @@ export default function Login() {
         }
 
         localStorage.setItem("userEmail", document.getElementById("loginEmail").value);
+        localStorage.setItem("username",document.getElementById("loginUsername").value);
 
         await fetch('https://developerus.herokuapp.com/loginUser/', {
             method: "POST",
