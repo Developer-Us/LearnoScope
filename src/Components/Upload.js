@@ -32,14 +32,14 @@ export default function Upload() {
     }
 
     const getFile1 = () => {
-        if(document.getElementById('title').value.length==0)
+        if(document.getElementById('title').value.length===0)
         {
            alert("Title can't be empty :(");
         }
-        else if((document.getElementById('desc').value.length==0))
+        else if((document.getElementById('desc').value.length===0))
         {
             alert("Description can't be empty :(");
-        }else if(document.getElementById('title').value.length==0 && document.getElementById('desc').value.length==0){
+        }else if(document.getElementById('title').value.length===0 && document.getElementById('desc').value.length==0){
             alert("Fields can't be empty :(");
         }
         else{
@@ -51,9 +51,9 @@ export default function Upload() {
     return (
 <form id="FormForUpload" onSubmit={(e)=>{
 e.preventDefault();
-if(document.getElementById('thumnail').value.length==0)
+if(document.getElementById('thumnail').value.length===0)
 alert("Thumnail can't be empty :( ");
-else if(document.getElementById('keyword').value.length==0)
+else if(document.getElementById('keyword').value.length===0)
 alert("Keyword can't be empty :( ");
 else
 alert("Vedio uplading get started");
