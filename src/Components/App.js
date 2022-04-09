@@ -11,6 +11,7 @@ import ForgetPass from './ForgetPass';
 import OTP from './OTP';
 // import VideoWatchSection from './VideoWatchSection';
 // import SearchResult from './SearchResult';
+// import Bookmark from './Bookmark';
 
 import {
   BrowserRouter as Router,
@@ -21,6 +22,7 @@ import {
 function App() {
   return (
     <>
+    {/* <Bookmark/> */}
     {/* <SearchResult/> */}
     {/* <VideoWatchSection/> */}
 
