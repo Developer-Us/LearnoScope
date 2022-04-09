@@ -7,7 +7,7 @@ import LeftBar from './LeftBar';
 import VideoFeed from './VideoFeed';
 import Login from './Login';
 import Signup from './Signup';
-// import Upload from './Upload';
+import Upload from './Upload';
 import ForgetPass from './ForgetPass';
 import OTP from './OTP';
 import VideoWatchSection from './VideoWatchSection';
@@ -51,9 +51,9 @@ function App() {
                 <Route exact path="/login">
                   <Login />
                 </Route>
-                {/* <Route exact path="/upload">
+                 <Route exact path="/upload">
                   <Upload />
-                </Route> */}
+                </Route> 
                 <Route exact path="/forgetPass">
                   <ForgetPass />
                 </Route>
