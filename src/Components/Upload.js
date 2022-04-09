@@ -39,7 +39,7 @@ export default function Upload() {
         else if((document.getElementById('desc').value.length===0))
         {
             alert("Description can't be empty :(");
-        }else if(document.getElementById('title').value.length===0 && document.getElementById('desc').value.length==0){
+        }else if(document.getElementById('title').value.length===0 && document.getElementById('desc').value.length===0){
             alert("Fields can't be empty :(");
         }
         else{
