@@ -4,15 +4,7 @@ import { useState } from 'react';
 export default function Upload() {
     /*State Variable Declaration Section*/
     const [filePath, setFilePath] = useState(" ");
-    /*Form Submit Main Logic */
-    const inputChange = (e) => {
-        setFormData((prev) => {
-            return {
-                ...prev,
-                [e.target.name]: [e.target.value]
-            }
-        })
-    }
+   
     const getFile = () => {
         try {
             var input = document.getElementById('SelectFile');
