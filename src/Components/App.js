@@ -11,6 +11,10 @@ import Signup from './Signup';
 import ForgetPass from './ForgetPass';
 import OTP from './OTP';
 import VideoWatchSection from './VideoWatchSection';
+import ChatInterface from './ChatSection/ChatInterface';
+import JoinRoom from './ChatSection/JoinRoom';
+import CreateRoom from './ChatSection/CreateRoom';
+
 // import SearchResult from './SearchResult';
 
 
@@ -55,6 +59,15 @@ function App() {
                 </Route>
                 <Route exact path="/otp">
                   <OTP />
+                </Route>
+                <Route exact path="/chatInterface">
+                  <ChatInterface/>
+                </Route>
+                <Route exact path="/joinRoom">
+                  <JoinRoom/>
+                </Route>
+                <Route exact path="/createRoom">
+                  <CreateRoom/>
                 </Route>
               </Switch>
             </div>
