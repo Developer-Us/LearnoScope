@@ -22,8 +22,9 @@ export default function JoinRoom() {
       "roomPass": document.getElementById("roomPass").value,
       "email": localStorage.getItem("userEmail")
     }
- 
-    localStorage.setItem("roomName",document.getElementById("roomName").value);
+
+    localStorage.setItem("roomName", document.getElementById("roomName").value);
+    localStorage.setItem("roomPass",document.getElementById("roomPass").value)
     await fetch('https://developerus.herokuapp.com/GetChatRoom/', {
       method: "POST",
       headers: {
@@ -43,6 +44,11 @@ export default function JoinRoom() {
 
   return (
     <div>
+      <div id="RoomCreationMessageAlert" style={{display:"none"}} className="alert alert-primary alert-dismissible fade show" role="alert">
+        Room Named - <strong id="roomNameForAlert"> </strong>&nbsp; created successfully :)
+        <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+
       <Link to="/chatting" className='text-center' style={{ textDecoration: "none", color: "black" }}> <div id="redirectToChatting"></div></Link>
       <br />
       <br />
