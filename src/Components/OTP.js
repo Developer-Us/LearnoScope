@@ -30,69 +30,32 @@ export default function OTP() {
         });
       }
     }
-    OTPInput(); 
+    OTPInput();
     // logical code to move cursor to forward input box in OTP section
   });
 
   return (
     <>
-      <div className="container height-100 d-flex justify-content-center align-items-center">
-        <div className="position-relative">
-          <div className="card p-2 text-center">
-            <h6>Please enter the one time password to verify your account</h6>
-
-            <div>
-              <span>A code has been sent to {mail}</span>
-            </div>
-
-            <div
-              id="otp"
-              className="inputs d-flex flex-row justify-content-center mt-2"
-            >
-              <input
-                className="m-2 text-center form-control rounded"
-                type="text"
-                id="first"
-                maxlength="1"
-              />
-              <input
-                className="m-2 text-center form-control rounded"
-                type="text"
-                id="second"
-                maxlength="1"
-              />
-              <input
-                className="m-2 text-center form-control rounded"
-                type="text"
-                id="third"
-                maxlength="1"
-              />
-              <input
-                className="m-2 text-center form-control rounded"
-                type="text"
-                id="fourth"
-                maxlength="1"
-              />
-              <input
-                className="m-2 text-center form-control rounded"
-                type="text"
-                id="fifth"
-                maxlength="1"
-              />
-              <input
-                className="m-2 text-center form-control rounded"
-                type="text"
-                id="sixth"
-                maxlength="1"
-              />{" "}
+      <div className="Otp_Section container h-100 d-flex mx-auto my-auto">
+          <div className="otp_card shadow-lg card p-2 text-center mx-auto">
+            <h4 className="otp_head">Please enter the one time password to verify your account</h4>
+            <span>A code has been sent to <span className="email_id">{mail}</span></span>
+            <div id="otp" className="inputs d-flex flex-row justify-content-center mt-2">
+              {/* inp m-2 text-center form-control rounded */}
+              <input className="inp text-center form-control rounded" id="first" type="text" maxlength="1" max="9" min="0" oninput="this.value=this.value.replace(/[^0-9]/g,'');" />
+              <input className="inp text-center form-control rounded" id="second" type="text" maxlength="1" max="9" min="0" oninput="this.value=this.value.replace(/[^0-9]/g,'');" />
+              <input className="inp text-center form-control rounded" id="third" type="text" maxlength="1" max="9" min="0" oninput="this.value=this.value.replace(/[^0-9]/g,'');" />
+              <input className="inp text-center form-control rounded" id="fourth" type="text" maxlength="1" max="9" min="0" oninput="this.value=this.value.replace(/[^0-9]/g,'');" />
+              <input className="inp text-center form-control rounded" id="fifth" type="text" maxlength="1" max="9" min="0" oninput="this.value=this.value.replace(/[^0-9]/g,'');" />
+              <input className="inp text-center form-control rounded" id="sixth" type="text" maxlength="1" max="9" min="0" oninput="this.value=this.value.replace(/[^0-9]/g,'');" />
+              {" "}
             </div>
 
             <div className="mt-4">
               {" "}
-              <button className="btn btn-danger px-4 validate">Validate</button>
+              <button className="btn px-4 validate">Validate</button>
             </div>
           </div>
-        </div>
       </div>
     </>
   );
