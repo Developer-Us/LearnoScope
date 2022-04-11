@@ -69,37 +69,37 @@ alert("Vedio uplading get started");
 </div>
 
 <div id="in2" style={{display:"none"}}>
-<div class="card" >
+<div className="card" >
 <video id="Ved_1" style={{width:"100vw",height:"75vh"}} controls>
 </video>
-<div class="mb-3" style={{marginTop:"20px",width:"98%",paddingLeft:"20px"}}>
-  <label for="title" class="form-label">Title</label>
-  <input type="text" class="form-control" id="title" placeholder="Enter your video title"/>
+<div className="mb-3" style={{marginTop:"20px",width:"98%",paddingLeft:"20px"}}>
+  <label for="title" className="form-label">Title</label>
+  <input type="text" className="form-control" id="title" placeholder="Enter your video title"/>
 </div>
-<div class="mb-3" style={{marginTop:"20px",width:"98%",paddingLeft:"20px"}}>
-  <label for="desc" class="form-label">Description</label>
-  <textarea class="form-control" id="desc" rows="8" placeholder="Enter description of video"></textarea>
+<div className="mb-3" style={{marginTop:"20px",width:"98%",paddingLeft:"20px"}}>
+  <label for="desc" className="form-label">Description</label>
+  <textarea className="form-control" id="desc" rows="8" placeholder="Enter description of video"></textarea>
   <span id="btnContinue1" type="button" className="btn btn-primary my-5" onClick={getFile1}>Continue</span>
 </div>
 </div>
 </div>
 
 <div id="in3"style={{display:"none",width:"100vw",height:"75vh"}} >
-<div class="card" style={{width:"100vw",height:"100vh"}}>
-<div class="mb-3" style={{marginTop:"20px",width:"98%",paddingLeft:"20px"}}>
-  <label for="email" class="form-label">Email</label>
-  <input type="email" class="form-control" id="email" value={localStorage.getItem('userEmail')}/>
+<div className="card" style={{width:"100vw",height:"100vh"}}>
+<div className="mb-3" style={{marginTop:"20px",width:"98%",paddingLeft:"20px"}}>
+  <label for="email" className="form-label">Email</label>
+  <input type="email" className="form-control" id="email" value={localStorage.getItem('userEmail')}/>
 </div> 
-<div class="mb-3" style={{marginTop:"20px",width:"98%",paddingLeft:"20px"}}>
-  <label for="keyword" class="form-label">Keywords</label>
-  <input type="text" class="form-control" id="keyword" placeholder="Enter keywords"/>
+<div className="mb-3" style={{marginTop:"20px",width:"98%",paddingLeft:"20px"}}>
+  <label for="keyword" className="form-label">Keywords</label>
+  <input type="text" className="form-control" id="keyword" placeholder="Enter keywords"/>
 </div>   
-<div class="mb-3" style={{marginTop:"20px",width:"98%",paddingLeft:"20px"}}>
-<label for="thumnail" class="form-label">Select the Thumnail</label>
+<div className="mb-3" style={{marginTop:"20px",width:"98%",paddingLeft:"20px"}}>
+<label for="thumnail" className="form-label">Select the Thumnail</label>
 <input type="file" id="thumnail" className="form-control" name="thumnail" />
 </div>  
-<div class="mb-3" style={{marginTop:"20px",width:"98%",paddingLeft:"20px"}}>
-<label for="notes" class="form-label">Select the note file</label>
+<div className="mb-3" style={{marginTop:"20px",width:"98%",paddingLeft:"20px"}}>
+<label for="notes" className="form-label">Select the note file</label>
 <input type="file" id="notes" className="form-control" name="noteFile" />
 <button id="uploadbtn" type="submit" className="btn btn-primary my-5" >Upload</button>
 </div>   
