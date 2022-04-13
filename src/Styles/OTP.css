@@ -1,64 +1,84 @@
-.height-100 {
-    height: 100vh
-}
-
- .card {
-    width: 400px;
+ .otp_card {
+     margin-top: 120px;
+    width: 900px;
     border: none;
-    height: 300px;
-    box-shadow: 0px 5px 20px 0px #d2dae3;
+    height: 350px;
     z-index: 1;
     display: flex;
     justify-content: center;
-    align-items: center
+    align-items: center;
 } 
 
-.card h6 {
+.otp_head {
     color: red;
-    font-size: 20px
 }
 
-.inputs input {
-    width: 40px;
-    height: 40px
+.inp{
+    width: 80px;
+    height: 80px;
+    margin: 25px;
 }
 
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    margin: 0
-}
-
-.card-2 {
-    background-color: #fff;
-    padding: 10px;
-    width: 350px;
-    height: 100px;
-    bottom: -50px;
-    left: 20px;
-    position: absolute;
-    border-radius: 5px
-}
-
-.card-2 .content {
-    margin-top: 50px
-}
-
-.card-2 .content a {
-    color: red
-}
-
-.form-control:focus {
+.inp:focus {
     box-shadow: none;
-    border: 2px solid red
+    border: 2px solid red;
 }
 
 .validate {
     border-radius: 20px;
     height: 40px;
+    background-color: rgb(255, 0, 0);
+    border: 1px solid rgb(0, 0, 0);
+    width: 140px;
+}
+.validate:hover{
     background-color: red;
-    border: 1px solid red;
-    width: 140px
+    color: black;
+    box-shadow: black 5px;
+}
+.email_id{
+    font-weight: bold;
+    font-size: large;
+}
+@media screen and (max-width: 991.5px) {
+    .inp{
+        width: 75px;
+        height: 75px;
+        margin: 18px;
+    }
+}
+@media screen and (max-width: 767.5px) {
+    .inp{
+        width: 55px;
+        height: 55px;
+        margin: 14px;
+    }
+}
+@media screen and (max-width: 525px) {
+    .inp{
+        width: 50px;
+        height: 50px;
+        margin: 10px;
+    }
+}
+@media screen and (max-width: 451px) {
+    .inp{
+        width: 45px;
+        height: 45px;
+        margin: 10px;
+    }
+}
+@media screen and (max-width: 396px) {
+    .inp{
+        width: 40px;
+        height: 40px;
+        margin: 10px;
+    }
+}
+@media screen and (max-width: 396px) {
+    .inp{
+        width: 35px;
+        height: 35px;
+        margin: 10px;
+    }
 }
