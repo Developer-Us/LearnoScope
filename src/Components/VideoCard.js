@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import LoggedInStatusContext from '../Context/LoggedInStatus/LoggedInStatusContext';
 
-
 export default function VideoCard() {
     const is_loggedin = useContext(LoggedInStatusContext);   
     
