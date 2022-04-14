@@ -43,7 +43,8 @@ export default function VideoFeed(props) {
             body: JSON.stringify(userObject),
         }).then(response => response.json()).then((data) => {
             if (data.status === 200) {
-                console.log(data);
+                let profile_pic_src = "https://developerus.herokuapp.com"+data.profile_pic.profile_pic;
+                document.getElementById("dashboard-user-profile-pic").src = profile_pic_src;
             }
             else {
                 console.log(data);

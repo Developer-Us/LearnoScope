@@ -257,10 +257,11 @@ export default function Navbar() {
 
                             {/* user Dashboard/menu */}
                             <div className="mx-2" id='UserDashBoard'>
-                                <svg xmlns="http://www.w3.org/2000/svg" style={{ "cursor": "pointer" }} onClick={toggleProfileOption} width="30" height="30" fill={applicationMode.mode === "dark" ? "white" : "dark"} className="bi bi-person-circle" viewBox="0 0 16 16">
+                                {/* <svg xmlns="http://www.w3.org/2000/svg" style={{ "cursor": "pointer" }} onClick={toggleProfileOption} width="30" height="30" fill={applicationMode.mode === "dark" ? "white" : "dark"} className="bi bi-person-circle" viewBox="0 0 16 16">
                                     <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
                                     <path fillRule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
-                                </svg>
+                                </svg> */}
+                                <img src="Images/hill.jpg" id="dashboard-user-profile-pic" height="32" width="32" alt="" style={{borderRadius:"50%",cursor:"pointer"}} onClick={toggleProfileOption}/>
 
                                 <div id="profileDropdown" className="card my-2 shadow p-3 mb-5 bg-body" style={{ "height": "auto", "width": "10rem", "position": "absolute", "zIndex": 5, "right": 11, "display": "none" }}>
                                     <div id="profileDropdownBox" className="card-body">
@@ -279,6 +280,4 @@ export default function Navbar() {
             </div>
         )
     }
-
-
 }
