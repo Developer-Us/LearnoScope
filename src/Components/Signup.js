@@ -30,7 +30,7 @@ export default function Signup() {
           {/* profile_pic */}
           <div className="mb-3 my-3">
             <small className="mx-auto">Select Profile Picture</small>
-            <input name="profile_pic" type="file" className="form-control form-control-sm" placeholder="Select Profile Picture" />
+            <input name="profile_pic" type="file"  accept=".png, .jpg, .jpeg" className="form-control form-control-sm" placeholder="Select Profile Picture" />
           </div>
           <hr />
           {/* firstName */}

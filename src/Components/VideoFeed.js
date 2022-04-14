@@ -7,6 +7,28 @@ import LoggedInStatusContext from '../Context/LoggedInStatus/LoggedInStatusConte
 
 export default function VideoFeed(props) {
     const is_loggedin = useContext(LoggedInStatusContext);
+
+    async function getVideoFeed() {
+        let userObject = {
+            "email": localStorage.getItem('userEmail')
+        }
+        await fetch('https://developerus.herokuapp.com/getVideoFeed/', {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(userObject),
+        }).then(response => response.json()).then((data) => {
+            if (data.status === 200) {
+                let profile_pic_src = "https://developerus.herokuapp.com"+data.profile_pic.profile_pic;
+                document.getElementById("dashboard-user-profile-pic").src = profile_pic_src;
+            }
+            else {
+                console.log(data);
+            }
+        });
+    }
+
     useEffect(() => {
           
         if(is_loggedin.loggedin === true){
@@ -31,26 +53,6 @@ export default function VideoFeed(props) {
         }
     })
 
-    async function getVideoFeed() {
-        let userObject = {
-            "email": localStorage.getItem('userEmail')
-        }
-        await fetch('https://developerus.herokuapp.com/getVideoFeed/', {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(userObject),
-        }).then(response => response.json()).then((data) => {
-            if (data.status === 200) {
-                let profile_pic_src = "https://developerus.herokuapp.com"+data.profile_pic.profile_pic;
-                document.getElementById("dashboard-user-profile-pic").src = profile_pic_src;
-            }
-            else {
-                console.log(data);
-            }
-        });
-    }
 
     return (
         <div>

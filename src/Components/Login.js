@@ -83,7 +83,7 @@ export default function Login() {
         <>
             {loading && <Spinner />}
             {!loading &&
-                <>
+                <div>
                     <div id="logoutAlert" style={{ display: "none" }} className="alert alert-info alert-dismissible fade show" role="alert">
                         Logged out Successfully :)
                         <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -114,9 +114,7 @@ export default function Login() {
                             </form>
                         </div>
                     </div>
-                </>}
-
-
+                </div>}
         </>
 
     )
