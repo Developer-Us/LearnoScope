@@ -44,9 +44,6 @@ export default function Login() {
             "email": document.getElementById("loginEmail").value
         }
 
-        localStorage.setItem("userEmail", document.getElementById("loginEmail").value);
-        localStorage.setItem("username", document.getElementById("loginUsername").value);
-       
         setLoading(true);
         await fetch('https://developerus.herokuapp.com/loginUser/', {
             method: "POST",
@@ -59,6 +56,8 @@ export default function Login() {
 
             if (data.status === 200) {
                 is_loggedin.setLoggedin(true);
+                localStorage.setItem("userEmail", userObject.email);
+                localStorage.setItem("username", userObject.username);
                 document.getElementById("Application-logo").click();
                 document.getElementById("GreetingAlert").style.display = "block";
             }

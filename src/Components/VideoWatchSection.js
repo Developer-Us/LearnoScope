@@ -1,9 +1,20 @@
-import React from 'react'
+import React from 'react';
+import { useEffect } from 'react';
 import '../Styles/VideoWatchSection.css';
-;
+import { useContext } from 'react';
+import LoggedInStatusContext from '../Context/LoggedInStatus/LoggedInStatusContext';
+
 
 export default function VideoWatchSection() {
+    const is_loggedin = useContext(LoggedInStatusContext);
 
+
+    useEffect(() => {
+        if (localStorage.getItem("userEmail") !== null) {
+            is_loggedin.setLoggedin(true);
+        }
+    })
+    
 
     //Functions for handling hover effect for like, share ...btns
     const DisplayLikeText = () => {
