@@ -36,8 +36,6 @@ export default function Bookmark() {
         <BookmarkContainer />
         <BookmarkContainer />
         <BookmarkContainer />
-        
-    
       </div>
 
         
