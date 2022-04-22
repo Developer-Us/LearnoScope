@@ -15,6 +15,7 @@ import ChatInterface from './ChatSection/ChatInterface';
 import JoinRoom from './ChatSection/JoinRoom';
 import CreateRoom from './ChatSection/CreateRoom';
 import Chatting from './ChatSection/Chatting';
+import UserProfile from '../Components/UserProfile';
 // import SearchResult from './SearchResult';
 
 
@@ -24,6 +25,7 @@ import {
   Switch,
   Route
 } from "react-router-dom";
+import Bookmark from './BookmarkContainer';
 
 function App() {
 
@@ -72,6 +74,12 @@ function App() {
                   </Route>
                   <Route exact path="/chatting">
                     <Chatting />
+                  </Route>
+                  <Route exact path="/userProfile">
+                    <UserProfile/>
+                  </Route>
+                  <Route exact path="/bookmark">
+                    <Bookmark/>
                   </Route>
                 </Switch>
               </div>

@@ -1,6 +1,8 @@
 import React from "react";
 import ProfileCard from "./ProfileCard";
+// import VideoCard from "./VideoCard";
 import VideoFeed from "./VideoFeed";
+
 export default function UserProfile() {
   return (
     <>
