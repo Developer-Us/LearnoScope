@@ -3,11 +3,15 @@ import { useEffect } from 'react';
 import VideoCard from './VideoCard';
 import { useContext } from 'react';
 import LoggedInStatusContext from '../Context/LoggedInStatus/LoggedInStatusContext';
+import ApplicationModeContext from '../Context/ApplicationMode/ApplicationModeContext';
+
 
 
 
 export default function VideoFeed() {
     const is_loggedin = useContext(LoggedInStatusContext);
+    const applicationMode = useContext(ApplicationModeContext);
+
 
     async function getVideoFeed() {
         let userObject = {
@@ -32,7 +36,15 @@ export default function VideoFeed() {
     }
 
     useEffect(() => {
+        if (applicationMode.mode === "light")
+        {
+            document.getElementById("wishUser").style.color = "black"; 
+        }
+        else
+        {
+            document.getElementById("wishUser").style.color = "white"; 
 
+        }
         if (is_loggedin.loggedin === true) {
             getVideoFeed(); // for getting video feed
         }
