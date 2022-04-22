@@ -15,18 +15,18 @@ export default function UserProfile() {
         <div className="card-header">
           <ul className="nav nav-tabs card-header-tabs ">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="true" href="#">
+              <a className="nav-link active" aria-current="true" href="/">
                 Your Uploads
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <a className="nav-link" href="/">
                 Bookmark
               </a>
             </li>
 
             <li className="nav-item">
-              <a className="nav-link ">History</a>
+              <a className="nav-link" href="/">History</a>
             </li>
 
             <li className="nav-item">
