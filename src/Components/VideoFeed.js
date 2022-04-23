@@ -3,10 +3,15 @@ import { useEffect } from 'react';
 import VideoCard from './VideoCard';
 import { useContext } from 'react';
 import LoggedInStatusContext from '../Context/LoggedInStatus/LoggedInStatusContext';
+import ApplicationModeContext from '../Context/ApplicationMode/ApplicationModeContext';
 
 
-export default function VideoFeed(props) {
+
+
+export default function VideoFeed() {
     const is_loggedin = useContext(LoggedInStatusContext);
+    const applicationMode = useContext(ApplicationModeContext);
+
 
     async function getVideoFeed() {
         let userObject = {
@@ -20,8 +25,9 @@ export default function VideoFeed(props) {
             body: JSON.stringify(userObject),
         }).then(response => response.json()).then((data) => {
             if (data.status === 200) {
-                let profile_pic_src = "https://developerus.herokuapp.com"+data.profile_pic.profile_pic;
+                let profile_pic_src = "https://developerus.herokuapp.com" + data.profile_pic.profile_pic;
                 document.getElementById("dashboard-user-profile-pic").src = profile_pic_src;
+                console.log(data);
             }
             else {
                 console.log(data);
@@ -30,8 +36,16 @@ export default function VideoFeed(props) {
     }
 
     useEffect(() => {
-          
-        if(is_loggedin.loggedin === true){
+        if (applicationMode.mode === "light")
+        {
+            document.getElementById("wishUser").style.color = "black"; 
+        }
+        else
+        {
+            document.getElementById("wishUser").style.color = "white"; 
+
+        }
+        if (is_loggedin.loggedin === true) {
             getVideoFeed(); // for getting video feed
         }
 
@@ -47,7 +61,6 @@ export default function VideoFeed(props) {
             else if (noOfHrs >= 17 && noOfHrs <= 24)
                 document.getElementById("wishUser-time").innerText = "🌆 Good Evening";
 
-
             document.getElementById("wishUser-username").innerText = localStorage.getItem("username");
             document.getElementById("wishUser").style.display = "block";
         }
@@ -62,18 +75,18 @@ export default function VideoFeed(props) {
             </div>
             <div id="wishUser" style={{ display: "none" }} className="text-center container my-3 mx-auto p-3 mb-5 fs-2"><span id="wishUser-time"></span> <strong id="wishUser-username"></strong> !</div>
             <div className="d-flex my-5" style={{ flexWrap: "wrap", justifyContent: "center" }}>
-                <VideoCard />
-                <VideoCard />
-                <VideoCard />
-                <VideoCard />
-                <VideoCard />
-                <VideoCard />
-                <VideoCard />
-                <VideoCard />
-                <VideoCard />
-                <VideoCard />
-                <VideoCard />
-                <VideoCard />
+                <VideoCard videoTitle="Shivray Trailer HD" videoThumbnail="Images/VedioThumnail.jpg" channelName="T-Series" views="200" videoUploadingTime="13 jan 2022"/>
+                <VideoCard videoTitle="Shivray Trailer HD" videoThumbnail="Images/VedioThumnail.jpg" channelName="T-Series" views="200" videoUploadingTime="13 jan 2022"/>
+                <VideoCard videoTitle="Shivray Trailer HD" videoThumbnail="Images/VedioThumnail.jpg" channelName="T-Series" views="200" videoUploadingTime="13 jan 2022"/>
+                <VideoCard videoTitle="Shivray Trailer HD" videoThumbnail="Images/VedioThumnail.jpg" channelName="T-Series" views="200" videoUploadingTime="13 jan 2022"/>
+                <VideoCard videoTitle="Shivray Trailer HD" videoThumbnail="Images/VedioThumnail.jpg" channelName="T-Series" views="200" videoUploadingTime="13 jan 2022"/>
+                <VideoCard videoTitle="Shivray Trailer HD" videoThumbnail="Images/VedioThumnail.jpg" channelName="T-Series" views="200" videoUploadingTime="13 jan 2022"/>
+                <VideoCard videoTitle="Shivray Trailer HD" videoThumbnail="Images/VedioThumnail.jpg" channelName="T-Series" views="200" videoUploadingTime="13 jan 2022"/>
+                <VideoCard videoTitle="Shivray Trailer HD" videoThumbnail="Images/VedioThumnail.jpg" channelName="T-Series" views="200" videoUploadingTime="13 jan 2022"/>
+                <VideoCard videoTitle="Shivray Trailer HD" videoThumbnail="Images/VedioThumnail.jpg" channelName="T-Series" views="200" videoUploadingTime="13 jan 2022"/>
+                <VideoCard videoTitle="Shivray Trailer HD" videoThumbnail="Images/VedioThumnail.jpg" channelName="T-Series" views="200" videoUploadingTime="13 jan 2022"/>
+                <VideoCard videoTitle="Shivray Trailer HD" videoThumbnail="Images/VedioThumnail.jpg" channelName="T-Series" views="200" videoUploadingTime="13 jan 2022"/>
+                <VideoCard videoTitle="Shivray Trailer HD" videoThumbnail="Images/VedioThumnail.jpg" channelName="T-Series" views="200" videoUploadingTime="13 jan 2022"/>
             </div>
         </div>
 

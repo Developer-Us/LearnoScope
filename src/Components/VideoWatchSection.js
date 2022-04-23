@@ -1,9 +1,32 @@
-import React from 'react'
+import React from 'react';
+import { useEffect } from 'react';
 import '../Styles/VideoWatchSection.css';
-;
+import { useContext } from 'react';
+import LoggedInStatusContext from '../Context/LoggedInStatus/LoggedInStatusContext';
+import ApplicationModeContext from '../Context/ApplicationMode/ApplicationModeContext';
+
+
 
 export default function VideoWatchSection() {
+    const is_loggedin = useContext(LoggedInStatusContext);
+    const applicationMode = useContext(ApplicationModeContext);
 
+
+
+    useEffect(() => {
+        if (applicationMode.mode === "light")
+        {
+            document.getElementById("Video_metadata").style.color = "black";
+        }
+        else
+        {
+            document.getElementById("Video_metadata").style.color = "white";
+        }
+        if (localStorage.getItem("userEmail") !== null) {
+            is_loggedin.setLoggedin(true);
+        }
+    })
+    
 
     //Functions for handling hover effect for like, share ...btns
     const DisplayLikeText = () => {
@@ -42,8 +65,8 @@ export default function VideoWatchSection() {
                         </video>
                     </div>
 
-                    <div className='VideoMetaData'>
-                        <div className="VideoTitle">
+                    <div className="VideoMetaData" id="Video_metadata">
+                        <div className="VideoTitle" >
                             Piyush Bansal's Lenskart's Journey - Shark Tank India | Madhukrishna Nipankar overtook piyush | Vedant, Amit and Kiran become partners of Madhukrishna | Yadhnesh starts crying
                         </div>
 

@@ -15,18 +15,88 @@ import ChatInterface from './ChatSection/ChatInterface';
 import JoinRoom from './ChatSection/JoinRoom';
 import CreateRoom from './ChatSection/CreateRoom';
 import Chatting from './ChatSection/Chatting';
+import UserProfile from '../Components/UserProfile';
 // import SearchResult from './SearchResult';
 import History from './History';
 
 
 
+<<<<<<< HEAD
+=======
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
+import Bookmark from './Bookmark';
+>>>>>>> 9ce66e1757d98301949ed30d13e7cc3bb8161fcf
 
 function App() {
 
   return (
     <>
+<<<<<<< HEAD
     <History/>
   
+=======
+      <Router>
+        <LoggedInStatusState>
+          <UserDataState>
+            <ApplicationModeState>
+              <div className='App'>
+                <Navbar />
+                <LeftBar />
+                <Switch>
+                  <Route exact path="/videoFeed">
+                    <VideoFeed />
+                  </Route>
+                  <Route exact path="/">
+                    <VideoFeed />
+                  </Route>
+                  <Route exact path="/videoWatchSection">
+                    <VideoWatchSection />
+                  </Route>
+                  <Route exact path="/signup">
+                    <Signup />
+                  </Route>
+                  <Route exact path="/login">
+                    <Login />
+                  </Route>
+                  <Route exact path="/upload">
+                  <Upload />
+                </Route>
+                  <Route exact path="/forgetPass">
+                    <ForgetPass />
+                  </Route>
+                  <Route exact path="/otp">
+                    <OTP />
+                  </Route>
+                  <Route exact path="/chatInterface">
+                    <ChatInterface />
+                  </Route>
+                  <Route exact path="/joinRoom">
+                    <JoinRoom />
+                  </Route>
+                  <Route exact path="/createRoom">
+                    <CreateRoom />
+                  </Route>
+                  <Route exact path="/chatting">
+                    <Chatting />
+                  </Route>
+                  <Route exact path="/userProfile">
+                    <UserProfile/>
+                  </Route>
+                  <Route exact path="/bookmark">
+                    <Bookmark/>
+                  </Route>
+                </Switch>
+              </div>
+            </ApplicationModeState>
+          </UserDataState>
+        </LoggedInStatusState>
+      </Router>
+
+>>>>>>> 9ce66e1757d98301949ed30d13e7cc3bb8161fcf
     </>
   );
 }

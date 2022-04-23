@@ -1,7 +1,38 @@
 import React from 'react'
 import { useState } from 'react';
+import { useEffect } from 'react';
+import { useContext } from 'react';
+import ApplicationModeContext from '../Context/ApplicationMode/ApplicationModeContext';
+
 
 export default function Upload() {
+    const applicationMode = useContext(ApplicationModeContext);
+
+    useEffect(() => {
+        if (applicationMode.mode === "light")
+        {
+            document.getElementById("in1").style.color = "black";
+            document.getElementById("in2").style.color = "black";
+            document.getElementById("Ved_1").style.border = "none";
+            document.getElementById("card").style.backgroundColor = "white";
+            document.getElementById("card").style.transition = "all 1s ease-out";
+            document.getElementById("in3").style.color = "black";
+            document.getElementById("card_2").style.backgroundColor = "white";
+            document.getElementById("card_2").style.transition = "all 1s ease-out";
+
+        }
+        else
+        {
+            document.getElementById("in1").style.color = "white";
+            document.getElementById("in2").style.color = "white";
+            document.getElementById("Ved_1").style.border = "solid 2px";
+            document.getElementById("card").style.backgroundColor = "black";
+            document.getElementById("card").style.transition = "all 1s ease-out";
+            document.getElementById("in3").style.color = "white";
+            document.getElementById("card_2").style.backgroundColor = "black";
+            document.getElementById("card_2").style.transition = "all 1s ease-out";
+        }
+    })
     /*State Variable Declaration Section*/
     const [filePath, setFilePath] = useState(" ");
     const [mail, setMail] = useState();
@@ -46,7 +77,7 @@ export default function Upload() {
             else if (document.getElementById('keyword').value.length === 0)
                 alert("Keyword can't be empty :( ");
             else
-                alert("Vedio uplading get started");
+                alert("Video uploading started");
         }}>
             <div id="FormElementContainer0" className='d-flex'  >
 
@@ -59,8 +90,8 @@ export default function Upload() {
                 </div>
 
                 <div id="in2" style={{ display: "none" }}>
-                    <div className="card" >
-                        <video id="Ved_1" style={{ width: "100vw", height: "75vh" }} controls>
+                    <div className="card" id="card">
+                        <video id="Ved_1" style={{ width: "98.7vw", height: "75vh" }} controls>
                         </video>
                         <div className="mb-3" style={{ marginTop: "20px", width: "98%", paddingLeft: "20px" }}>
                             <label htmlFor="title" className="form-label">Title</label>
@@ -75,7 +106,7 @@ export default function Upload() {
                 </div>
 
                 <div id="in3" style={{ display: "none", width: "100vw", height: "75vh" }} >
-                    <div className="card" style={{ width: "100vw", height: "100vh" }}>
+                    <div className="card" id="card_2"style={{ width: "98.7vw", height: "100vh" }}>
                         <div className="mb-3" style={{ marginTop: "20px", width: "98%", paddingLeft: "20px" }}>
                             <label htmlFor="email" className="form-label">Email</label>
                             <input type="email" className="form-control" id="email" value={mail} name=" email" onChange={chgMail} />

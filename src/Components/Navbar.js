@@ -4,7 +4,6 @@ import '../Styles/Navbar.css';
 import { useEffect } from 'react';
 import { useContext } from 'react';
 import LoggedInStatusContext from '../Context/LoggedInStatus/LoggedInStatusContext';
-import UserDataContext from '../Context/UserData/UserDataContext';
 import ApplicationModeContext from '../Context/ApplicationMode/ApplicationModeContext';
 
 
@@ -13,7 +12,6 @@ import ApplicationModeContext from '../Context/ApplicationMode/ApplicationModeCo
 export default function Navbar() {
     const is_loggedin = useContext(LoggedInStatusContext);
     const applicationMode = useContext(ApplicationModeContext);
-    const userData = useContext(UserDataContext);
 
     const toggleProfileOption = () => {
         if (document.getElementById("profileDropdown").style.display === "none") {
@@ -26,31 +24,29 @@ export default function Navbar() {
 
     //for user logout
     async function handleUserLogout() {
-        console.log(userData.userEmail);
-
         let loginData = {
             "email": localStorage.getItem("userEmail"),
         }
-        
-        localStorage.removeItem("userEmail");
+
 
         await fetch('https://developerus.herokuapp.com/logoutUser/', {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(loginData),
-            }).then(response => response.json()).then((data) => {
-                if (data.status === 200) {
-                    is_loggedin.setLoggedin(false);
-                    document.getElementById("leftBar-LoginBtn").click();
-                    document.getElementById("logoutAlert").style.display="block";
-                    toggleProfileOption();
-                }
-                else {
-                    alert(data.response);
-                }
-            });
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(loginData),
+        }).then(response => response.json()).then((data) => {
+            if (data.status === 200) {
+                localStorage.removeItem("userEmail");
+                is_loggedin.setLoggedin(false);
+                document.getElementById("leftBar-LoginBtn").click();
+                document.getElementById("logoutAlert").style.display = "block";
+                toggleProfileOption();
+            }
+            else {
+                alert(data.response);
+            }
+        });
     }
 
 
@@ -261,13 +257,15 @@ export default function Navbar() {
                                     <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
                                     <path fillRule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
                                 </svg> */}
-                                <img src="Images/hill.jpg" id="dashboard-user-profile-pic" height="32" width="32" alt="" style={{borderRadius:"50%",cursor:"pointer"}} onClick={toggleProfileOption}/>
+                                <img src="Images/hill.jpg" id="dashboard-user-profile-pic" height="32" width="32" alt="" style={{ borderRadius: "50%", cursor: "pointer" }} onClick={toggleProfileOption} />
 
                                 <div id="profileDropdown" className="card my-2 shadow p-3 mb-5 bg-body" style={{ "height": "auto", "width": "10rem", "position": "absolute", "zIndex": 5, "right": 11, "display": "none" }}>
                                     <div id="profileDropdownBox" className="card-body">
+                                       <Link to="/userProfile" style={{ textDecoration: "none", color: "black" }}>
                                         <p className="userProfileOptions">
                                             Your Profile
                                         </p>
+                                       </Link>
                                         <p onClick={handleUserLogout} id="userProfileOption-Logout" className="userProfileOptions">
                                             Logout
                                         </p>
