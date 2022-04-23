@@ -17,6 +17,7 @@ import CreateRoom from './ChatSection/CreateRoom';
 import Chatting from './ChatSection/Chatting';
 import UserProfile from '../Components/UserProfile';
 // import SearchResult from './SearchResult';
+import History from './History';
 
 
 
