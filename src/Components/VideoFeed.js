@@ -1,7 +1,6 @@
 import React from 'react';
 import { useEffect } from 'react';
 import VideoCard from './VideoCard';
-import Videoarray from './Videoarray';
 import { useContext } from 'react';
 import LoggedInStatusContext from '../Context/LoggedInStatus/LoggedInStatusContext';
 import ApplicationModeContext from '../Context/ApplicationMode/ApplicationModeContext';
@@ -75,7 +74,6 @@ export default function VideoFeed() {
     // for getting video feed
     return (
         <div>
-            <h1 id="h"></h1>
             <div id="GreetingAlert" style={{ display: "none" }} className="alert alert-primary alert-dismissible fade show" role="alert">
                 <strong id="usernameForGreet"> </strong>&nbsp;Logged in Successfully :)
                 <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
