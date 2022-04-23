@@ -84,23 +84,11 @@ export default function VideoFeed() {
             vidArray.map((val)=>{
             return(
                 <>
-             <VideoCard videoTitle={val.title} videoThumbnail={val.thumbnail} channelName="T-Series" views="200" videoUploadingTime="13 jan 2022"/>
+             <VideoCard videoTitle={val.title} videoThumbnail={"https://developerus.herokuapp.com"+val.thumbnail} channelName="T-Series" views="200" videoUploadingTime="13 jan 2022"/>
                 </>
             )
             })
             }
-                {/* <VideoCard videoTitle="Shivray Trailer HD" videoThumbnail="Images/VedioThumnail.jpg" channelName="T-Series" views="200" videoUploadingTime="13 jan 2022"/>
-                <VideoCard videoTitle="Shivray Trailer HD" videoThumbnail="Images/VedioThumnail.jpg" channelName="T-Series" views="200" videoUploadingTime="13 jan 2022"/>
-                <VideoCard videoTitle="Shivray Trailer HD" videoThumbnail="Images/VedioThumnail.jpg" channelName="T-Series" views="200" videoUploadingTime="13 jan 2022"/>
-                <VideoCard videoTitle="Shivray Trailer HD" videoThumbnail="Images/VedioThumnail.jpg" channelName="T-Series" views="200" videoUploadingTime="13 jan 2022"/>
-                <VideoCard videoTitle="Shivray Trailer HD" videoThumbnail="Images/VedioThumnail.jpg" channelName="T-Series" views="200" videoUploadingTime="13 jan 2022"/>
-                <VideoCard videoTitle="Shivray Trailer HD" videoThumbnail="Images/VedioThumnail.jpg" channelName="T-Series" views="200" videoUploadingTime="13 jan 2022"/>
-                <VideoCard videoTitle="Shivray Trailer HD" videoThumbnail="Images/VedioThumnail.jpg" channelName="T-Series" views="200" videoUploadingTime="13 jan 2022"/>
-                <VideoCard videoTitle="Shivray Trailer HD" videoThumbnail="Images/VedioThumnail.jpg" channelName="T-Series" views="200" videoUploadingTime="13 jan 2022"/>
-                <VideoCard videoTitle="Shivray Trailer HD" videoThumbnail="Images/VedioThumnail.jpg" channelName="T-Series" views="200" videoUploadingTime="13 jan 2022"/>
-                <VideoCard videoTitle="Shivray Trailer HD" videoThumbnail="Images/VedioThumnail.jpg" channelName="T-Series" views="200" videoUploadingTime="13 jan 2022"/>
-                <VideoCard videoTitle="Shivray Trailer HD" videoThumbnail="Images/VedioThumnail.jpg" channelName="T-Series" views="200" videoUploadingTime="13 jan 2022"/>
-                <VideoCard videoTitle="Shivray Trailer HD" videoThumbnail="Images/VedioThumnail.jpg" channelName="T-Series" views="200" videoUploadingTime="13 jan 2022"/> */}
             </div>
         </div>
 
