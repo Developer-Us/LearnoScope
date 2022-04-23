@@ -73,7 +73,7 @@ export default function VideoFeed() {
                 <strong id="usernameForGreet"> </strong>&nbsp;Logged in Successfully :)
                 <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
-            <div id="wishUser" style={{ display: "none" }} className="text-center container my-3 mx-auto p-3 mb-5 fs-2"><span id="wishUser-time"></span> <strong id="wishUser-username"></strong> !</div>
+            <div id="wishUser" style={{ display: "none"}} className="text-center container my-3 mx-auto p-3 mb-5 fs-2"><span id="wishUser-time"></span> <strong id="wishUser-username"></strong> !</div>
             <div className="d-flex my-5" style={{ flexWrap: "wrap", justifyContent: "center" }}>
                 <VideoCard videoTitle="Shivray Trailer HD" videoThumbnail="Images/VedioThumnail.jpg" channelName="T-Series" views="200" videoUploadingTime="13 jan 2022"/>
                 <VideoCard videoTitle="Shivray Trailer HD" videoThumbnail="Images/VedioThumnail.jpg" channelName="T-Series" views="200" videoUploadingTime="13 jan 2022"/>

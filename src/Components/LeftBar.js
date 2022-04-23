@@ -84,13 +84,14 @@ export default function LeftBar() {
                             </div>
                         </Link>
 
-
+                        <Link to="/history" style={{ textDecoration: "none", color: "black" }}>
                         <div className='container leftbar-option my-3'>
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-hourglass-top" viewBox="0 0 16 16">
                                 <path d="M2 14.5a.5.5 0 0 0 .5.5h11a.5.5 0 1 0 0-1h-1v-1a4.5 4.5 0 0 0-2.557-4.06c-.29-.139-.443-.377-.443-.59v-.7c0-.213.154-.451.443-.59A4.5 4.5 0 0 0 12.5 3V2h1a.5.5 0 0 0 0-1h-11a.5.5 0 0 0 0 1h1v1a4.5 4.5 0 0 0 2.557 4.06c.29.139.443.377.443.59v.7c0 .213-.154.451-.443.59A4.5 4.5 0 0 0 3.5 13v1h-1a.5.5 0 0 0-.5.5zm2.5-.5v-1a3.5 3.5 0 0 1 1.989-3.158c.533-.256 1.011-.79 1.011-1.491v-.702s.18.101.5.101.5-.1.5-.1v.7c0 .701.478 1.236 1.011 1.492A3.5 3.5 0 0 1 11.5 13v1h-7z" />
                             </svg>
                             <span className='mx-2 fs-6 text-center'>History</span>
                         </div>
+                        </Link>
 
                         <Link to="/upload" style={{ textDecoration: "none", color: "black" }}>
                             <div className='container leftbar-option my-3'>
@@ -101,12 +102,14 @@ export default function LeftBar() {
                             </div>
                         </Link>
 
+                        <Link to="/yourVideos" style={{ textDecoration: "none", color: "black" }}>
                         <div className='container leftbar-option my-3'>
                             <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" className="bi bi-film" viewBox="0 0 16 16">
                                 <path d="M0 1a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V1zm4 0v6h8V1H4zm8 8H4v6h8V9zM1 1v2h2V1H1zm2 3H1v2h2V4zM1 7v2h2V7H1zm2 3H1v2h2v-2zm-2 3v2h2v-2H1zM15 1h-2v2h2V1zm-2 3v2h2V4h-2zm2 3h-2v2h2V7zm-2 3v2h2v-2h-2zm2 3h-2v2h2v-2z" />
                             </svg>
                             <span className='mx-2 fs-6 text-center'>Your Videos</span>
                         </div>
+                        </Link>
                     </div>
                 </div>
             </div>

@@ -1,7 +1,19 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useContext } from 'react';
+import LoggedInStatusContext from '../../Context/LoggedInStatus/LoggedInStatusContext';
 
 export default function CreateRoom() {
+  const is_loggedin = useContext(LoggedInStatusContext);
+
+  useEffect(() => {
+    if (localStorage.getItem("userEmail") !== null) {
+      is_loggedin.setLoggedin(true);
+    }
+
+  });
+
   const handleRoomCreation = (e) => {
     e.preventDefault();
     if (document.getElementById('create-roomName').value.length === 0) {

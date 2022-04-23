@@ -3,12 +3,18 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { useContext } from 'react';
 import ApplicationModeContext from '../Context/ApplicationMode/ApplicationModeContext';
+import LoggedInStatusContext from '../Context/LoggedInStatus/LoggedInStatusContext';
 
 
 export default function Upload() {
     const applicationMode = useContext(ApplicationModeContext);
+    const is_loggedin = useContext(LoggedInStatusContext);
 
     useEffect(() => {
+        if (localStorage.getItem("userEmail") !== null) {
+            is_loggedin.setLoggedin(true);
+          }
+
         if (applicationMode.mode === "light")
         {
             document.getElementById("in1").style.color = "black";

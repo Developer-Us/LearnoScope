@@ -7,6 +7,9 @@ export default function Bookmark() {
   const is_loggedin = useContext(LoggedInStatusContext);
 
   useEffect(() => {
+    if (localStorage.getItem("userEmail") !== null) {
+      is_loggedin.setLoggedin(true);
+  }
     if (is_loggedin.loggedin === true) {
       getBookmarkData(); // for getting Bookmark Data
     }
@@ -54,7 +57,7 @@ export default function Bookmark() {
   return (
     <div id="Bookmarks">
       <div className="my-4 text-center fs-2 mb-2">
-        📑You dont have any bookmarks yet !
+        📑You don't have any bookmarks yet !
       </div>
     </div>
   );
