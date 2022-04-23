@@ -21,24 +21,17 @@ import History from './History';
 
 
 
-<<<<<<< HEAD
-=======
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
 import Bookmark from './Bookmark';
->>>>>>> 9ce66e1757d98301949ed30d13e7cc3bb8161fcf
 
 function App() {
 
   return (
     <>
-<<<<<<< HEAD
-    <History/>
-  
-=======
       <Router>
         <LoggedInStatusState>
           <UserDataState>
@@ -96,7 +89,6 @@ function App() {
         </LoggedInStatusState>
       </Router>
 
->>>>>>> 9ce66e1757d98301949ed30d13e7cc3bb8161fcf
     </>
   );
 }
