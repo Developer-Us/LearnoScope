@@ -1,7 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { useEffect } from 'react';
+import LoggedInStatusContext from '../../Context/LoggedInStatus/LoggedInStatusContext';
+
 
 export default function JoinRoom() {
+  const is_loggedin = useContext(LoggedInStatusContext);
+
+  useEffect(() => {
+    if (localStorage.getItem("userEmail") !== null) {
+      is_loggedin.setLoggedin(true);
+    }
+
+  });
 
   const handleJoinRoom = (e) => {
     e.preventDefault();

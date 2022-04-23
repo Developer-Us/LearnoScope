@@ -4,11 +4,14 @@ import VideoCard from './VideoCard';
 import Videoarray from './Videoarray';
 import { useContext } from 'react';
 import LoggedInStatusContext from '../Context/LoggedInStatus/LoggedInStatusContext';
+import ApplicationModeContext from '../Context/ApplicationMode/ApplicationModeContext';
 
 let vidArray=[]; 
 export default function VideoFeed() {
        
     const is_loggedin = useContext(LoggedInStatusContext);
+    const applicationMode = useContext(ApplicationModeContext);
+
 
   async  function getVideoFeed() {
         let userObject = {
@@ -41,6 +44,15 @@ export default function VideoFeed() {
     console.log("outside the func : ");
     console.log(vidArray.length);
     useEffect(() => {
+        if (applicationMode.mode === "light")
+        {
+            document.getElementById("wishUser").style.color = "black"; 
+        }
+        else
+        {
+            document.getElementById("wishUser").style.color = "white"; 
+
+        }
         if (is_loggedin.loggedin === true) {
             getVideoFeed();
         }
@@ -68,7 +80,7 @@ export default function VideoFeed() {
                 <strong id="usernameForGreet"> </strong>&nbsp;Logged in Successfully :)
                 <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
-            <div id="wishUser" style={{ display: "none" }} className="text-center container my-3 mx-auto p-3 mb-5 fs-2"><span id="wishUser-time"></span> <strong id="wishUser-username"></strong> !</div>
+            <div id="wishUser" style={{ display: "none"}} className="text-center container my-3 mx-auto p-3 mb-5 fs-2"><span id="wishUser-time"></span> <strong id="wishUser-username"></strong> !</div>
             <div className="d-flex my-5" style={{ flexWrap: "wrap", justifyContent: "center" }}>
             {
             vidArray.map((val)=>{
