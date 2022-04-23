@@ -25,7 +25,7 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import Bookmark from './BookmarkContainer';
+import Bookmark from './Bookmark';
 
 function App() {
 
