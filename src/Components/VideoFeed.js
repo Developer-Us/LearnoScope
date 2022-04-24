@@ -4,12 +4,14 @@ import VideoCard from './VideoCard';
 import { useContext } from 'react';
 import LoggedInStatusContext from '../Context/LoggedInStatus/LoggedInStatusContext';
 import ApplicationModeContext from '../Context/ApplicationMode/ApplicationModeContext';
+import UserDataContext from '../Context/UserData/UserDataContext';
 
 let vidArray=[]; 
 export default function VideoFeed() {
        
     const is_loggedin = useContext(LoggedInStatusContext);
     const applicationMode = useContext(ApplicationModeContext);
+    const userData = useContext(UserDataContext);
 
 
   async  function getVideoFeed() {
@@ -24,6 +26,7 @@ export default function VideoFeed() {
             body: JSON.stringify(userObject),
         }).then(response => response.json()).then((data) => {
             if (data.status === 200) {
+                console.log(data);
                 let profile_pic_src = "https://developerus.herokuapp.com" + data.profile_pic.profile_pic;
                 document.getElementById("dashboard-user-profile-pic").src = profile_pic_src;
                 for(var i=0;i<data.response.length;i++)
@@ -32,8 +35,11 @@ export default function VideoFeed() {
                     vidArray[i].title=data.response[i].video_title;
                     vidArray[i].desc=data.response[i].video_desc;
                     vidArray[i].thumbnail=data.response[i].video_thumbnail;
+                    vidArray[i].sno=data.response[i].sno;
+                    vidArray[i].video_file=data.response[i].video_file;
                 }
                 console.log(vidArray.length);
+                userData.setVideoFeedData(vidArray);
             }
             else {
                 // console.log(data);
@@ -84,7 +90,7 @@ export default function VideoFeed() {
             vidArray.map((val)=>{
             return(
                 <>
-             <VideoCard videoTitle={val.title} videoThumbnail={"https://developerus.herokuapp.com"+val.thumbnail} channelName="T-Series" views="200" videoUploadingTime="13 jan 2022"/>
+             <VideoCard  key={val.sno} sno={val.sno}  videoTitle={val.title} videoThumbnail={"https://developerus.herokuapp.com"+val.thumbnail} channelName="T-Series" views="200" videoUploadingTime="13 jan 2022"/>
                 </>
             )
             })

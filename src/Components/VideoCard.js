@@ -4,14 +4,30 @@ import '../Styles/VideoCard.css';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import LoggedInStatusContext from '../Context/LoggedInStatus/LoggedInStatusContext';
+import UserDataContext from '../Context/UserData/UserDataContext';
 
 export default function VideoCard(props) {
     const is_loggedin = useContext(LoggedInStatusContext);
+    const userData = useContext(UserDataContext);
+
+    const handleVideoCardClick = (id)=>{
+        // console.log("clicked",id);
+        // console.log(userData.videoFeedData);
+
+        for(var i=0;i<userData.videoFeedData.length;i++)
+        {
+          if(userData.videoFeedData[i].sno === id){
+              userData.setCurrentVideoLink("https://developerus.herokuapp.com"+(userData.videoFeedData[i].video_file));
+              userData.setCurrentVideoTitle((userData.videoFeedData[i].title));
+              break;
+          }
+        }
+    }
 
     if (is_loggedin.loggedin === true) {
         return (
             <Link to="/videoWatchSection" style={{ textDecoration: "none", color: "black" }} >
-                <div id="videoCard" className="card my-3 mx-3 shadow  bg-body rounded" style={{ "width": "21rem" }}>
+                <div id={props.sno} onClick={()=>{handleVideoCardClick(props.sno)}} className="videoCard card my-3 mx-3 shadow  bg-body rounded" style={{ "width": "21rem" }}>
                     <div style={{ "width": "21rem", "height": "12rem", backgroundColor: "grey" }}>
                         <img src={props.videoThumbnail} alt="loading.." style={{ "width": "21rem", "height": "12rem" }} />
                     </div>
@@ -31,7 +47,7 @@ export default function VideoCard(props) {
     else {
         return (
             <Link to="/login" style={{ textDecoration: "none", color: "black" }} >
-                <div id="videoCard" className="card my-3 mx-3 shadow  bg-body rounded" style={{ "width": "21rem" }}>
+                <div className="videoCard card my-3 mx-3 shadow  bg-body rounded" style={{ "width": "21rem" }}>
                     <div style={{ "width": "21rem", "height": "12rem", backgroundColor: "grey" }}>
                         <img src={props.videoThumbnail} alt="loading.." style={{ "width": "21rem", "height": "12rem" }} />
                     </div>

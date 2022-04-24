@@ -4,12 +4,14 @@ import '../Styles/VideoWatchSection.css';
 import { useContext } from 'react';
 import LoggedInStatusContext from '../Context/LoggedInStatus/LoggedInStatusContext';
 import ApplicationModeContext from '../Context/ApplicationMode/ApplicationModeContext';
+import UserDataContext from '../Context/UserData/UserDataContext';
 
 
 
 export default function VideoWatchSection() {
     const is_loggedin = useContext(LoggedInStatusContext);
     const applicationMode = useContext(ApplicationModeContext);
+    const userData = useContext(UserDataContext);
 
 
 
@@ -61,13 +63,13 @@ export default function VideoWatchSection() {
             <div className='VideoPlaySection my-4'>
                 <div className="VideoPlayer">
                     <div className="Video">
-                        <video className="VideoTag" src="Sample Video/sampleVideo.mov" type="video/mp4" controls>
+                        <video id="ActualVideo" src={userData.currentVideoLink} className="VideoTag" type="video/mp4" controls>
                         </video>
                     </div>
 
                     <div className="VideoMetaData" id="Video_metadata">
                         <div className="VideoTitle" >
-                            Piyush Bansal's Lenskart's Journey - Shark Tank India | Madhukrishna Nipankar overtook piyush | Vedant, Amit and Kiran become partners of Madhukrishna | Yadhnesh starts crying
+                           {userData.currentVideoTitle}
                         </div>
 
                         <div className="LikeShareWatchLaterReportBtns">
