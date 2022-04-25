@@ -105,11 +105,11 @@
     margin: 0px 20px;
   }
   .QuizSection {
-    /* border: 1px solid black; */
+    border: 1px solid black;
     height: 80%;
     width: 25%;
     margin: 10px;
-    display: none;
+    /* display: none; */
   }
   
   

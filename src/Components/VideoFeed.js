@@ -1,42 +1,45 @@
 import React from 'react';
 import { useEffect } from 'react';
 import VideoCard from './VideoCard';
+import { useState } from 'react';
 import { useContext } from 'react';
 import LoggedInStatusContext from '../Context/LoggedInStatus/LoggedInStatusContext';
 import ApplicationModeContext from '../Context/ApplicationMode/ApplicationModeContext';
 import UserDataContext from '../Context/UserData/UserDataContext';
+import Spinner from './Spinner';
 
-let vidArray=[]; 
+
+let vidArray = [];
 export default function VideoFeed() {
-       
+
     const is_loggedin = useContext(LoggedInStatusContext);
     const applicationMode = useContext(ApplicationModeContext);
     const userData = useContext(UserDataContext);
+    const [loading, setLoading] = useState(true);
 
-
-  async  function getVideoFeed() {
+    async function getVideoFeed() {
         let userObject = {
             "email": localStorage.getItem('userEmail')
         }
-  await  fetch('https://developerus.herokuapp.com/getVideoFeed/', {
+        await fetch('https://developerus.herokuapp.com/getVideoFeed/', {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(userObject),
         }).then(response => response.json()).then((data) => {
+            setLoading(false);
             if (data.status === 200) {
                 console.log(data);
                 let profile_pic_src = "https://developerus.herokuapp.com" + data.profile_pic.profile_pic;
                 document.getElementById("dashboard-user-profile-pic").src = profile_pic_src;
-                for(var i=0;i<data.response.length;i++)
-                {
-                    vidArray[i]={};
-                    vidArray[i].title=data.response[i].video_title;
-                    vidArray[i].desc=data.response[i].video_desc;
-                    vidArray[i].thumbnail=data.response[i].video_thumbnail;
-                    vidArray[i].sno=data.response[i].sno;
-                    vidArray[i].video_file=data.response[i].video_file;
+                for (var i = 0; i < data.response.length; i++) {
+                    vidArray[i] = {};
+                    vidArray[i].title = data.response[i].video_title;
+                    vidArray[i].desc = data.response[i].video_desc;
+                    vidArray[i].thumbnail = data.response[i].video_thumbnail;
+                    vidArray[i].sno = data.response[i].sno;
+                    vidArray[i].video_file = data.response[i].video_file;
                 }
                 console.log(vidArray.length);
                 userData.setVideoFeedData(vidArray);
@@ -49,13 +52,11 @@ export default function VideoFeed() {
     console.log("outside the func : ");
     console.log(vidArray.length);
     useEffect(() => {
-        if (applicationMode.mode === "light")
-        {
-            document.getElementById("wishUser").style.color = "black"; 
+        if (applicationMode.mode === "light") {
+            document.getElementById("wishUser").style.color = "black";
         }
-        else
-        {
-            document.getElementById("wishUser").style.color = "white"; 
+        else {
+            document.getElementById("wishUser").style.color = "white";
 
         }
         if (is_loggedin.loggedin === true) {
@@ -75,7 +76,7 @@ export default function VideoFeed() {
             document.getElementById("wishUser-username").innerText = localStorage.getItem("username");
             document.getElementById("wishUser").style.display = "block";
         }
-   
+
     })
     // for getting video feed
     return (
@@ -84,22 +85,24 @@ export default function VideoFeed() {
                 <strong id="usernameForGreet"> </strong>&nbsp;Logged in Successfully :)
                 <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
-            <div id="wishUser" style={{ display: "none"}} className="text-center container my-3 mx-auto p-3 mb-5 fs-2"><span id="wishUser-time"></span> <strong id="wishUser-username"></strong> !</div>
+            <div id="wishUser" style={{ display: "none" }} className="text-center container my-3 mx-auto p-3 mb-5 fs-2"><span id="wishUser-time"></span> <strong id="wishUser-username"></strong> !</div>
             <div className="d-flex my-5" style={{ flexWrap: "wrap", justifyContent: "center" }}>
-            {
-            vidArray.map((val)=>{
-            return(
-                <>
-             <VideoCard  key={val.sno} sno={val.sno}  videoTitle={val.title} videoThumbnail={"https://developerus.herokuapp.com"+val.thumbnail} channelName="T-Series" views="200" videoUploadingTime="13 jan 2022"/>
-                </>
-            )
-            })
-            }
+                {loading && <Spinner />}
+                {
+                 !loading &&
+                    vidArray.map((val) => {
+                        return (
+                            <>
+                                <VideoCard key={val.sno} sno={val.sno} videoTitle={val.title} videoThumbnail={"https://developerus.herokuapp.com" + val.thumbnail} channelName="T-Series" views="200" videoUploadingTime="13 jan 2022" />
+                            </>
+                        )
+                    })
+                }
             </div>
         </div>
 
 
     )
-     
+
 
 }
