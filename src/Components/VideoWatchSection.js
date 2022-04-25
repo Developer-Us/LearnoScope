@@ -108,7 +108,7 @@ export default function VideoWatchSection() {
 
                 </div>
                 <div className="QuizSection">
-                 <Vedionote/>
+                 {/* <Vedionote/> */}
                 </div>
             </div>
        
