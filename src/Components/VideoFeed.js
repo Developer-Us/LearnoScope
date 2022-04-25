@@ -39,7 +39,7 @@ export default function VideoFeed() {
                     vidArray[i].video_file=data.response[i].video_file;
                 }
                 console.log(vidArray.length);
-                userData.setVideoFeedData(vidArray);
+                //userData.setVideoFeedData(vidArray);
             }
             else {
                 // console.log(data);

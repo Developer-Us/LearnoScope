@@ -105,12 +105,13 @@ export default function VideoWatchSection() {
                         <div className="ChannelPic"><img src="Images/lenskart.jpg" style={{ borderRadius: "50%" }} height="50px" width="50px" alt=".." /></div>
                         <div className="ChannelName">Lenskart</div>
                     </div>
-                </div>
 
+                </div>
                 <div className="QuizSection">
-                    Quiz Section
+                 <Vedionote/>
                 </div>
             </div>
+       
         </div>
     )
 }
