@@ -4,14 +4,14 @@ import VideoCard from './VideoCard';
 import { useContext } from 'react';
 import LoggedInStatusContext from '../Context/LoggedInStatus/LoggedInStatusContext';
 import ApplicationModeContext from '../Context/ApplicationMode/ApplicationModeContext';
-import UserDataContext from '../Context/UserData/UserDataContext';
+// import UserDataContext from '../Context/UserData/UserDataContext';
 
 let vidArray=[]; 
 export default function VideoFeed() {
        
     const is_loggedin = useContext(LoggedInStatusContext);
     const applicationMode = useContext(ApplicationModeContext);
-    const userData = useContext(UserDataContext);
+    // const userData = useContext(UserDataContext);
 
 
   async  function getVideoFeed() {
@@ -39,7 +39,7 @@ export default function VideoFeed() {
                     vidArray[i].video_file=data.response[i].video_file;
                 }
                 console.log(vidArray.length);
-                userData.setVideoFeedData(vidArray);
+                //userData.setVideoFeedData(vidArray);
             }
             else {
                 // console.log(data);

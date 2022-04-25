@@ -19,8 +19,8 @@ import UserProfile from '../Components/UserProfile';
 import Bookmark from './Bookmark';
 import YourVideoSection from './YourVideoSection';
 import History from './History';
-
-// import SearchResult from './SearchResult';
+// import Vedionote from './Vedionote';
+//import SearchResult from './SearchResult';
 
 
 
@@ -35,6 +35,7 @@ function App() {
 
   return (
     <>
+    {/* <Vedionote/> */}
       <Router>
         <LoggedInStatusState>
           <UserDataState>
