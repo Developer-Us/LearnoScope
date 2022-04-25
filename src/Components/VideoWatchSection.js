@@ -5,7 +5,7 @@ import { useContext } from 'react';
 import LoggedInStatusContext from '../Context/LoggedInStatus/LoggedInStatusContext';
 import ApplicationModeContext from '../Context/ApplicationMode/ApplicationModeContext';
 import UserDataContext from '../Context/UserData/UserDataContext';
-
+import Vedionote from './Vedionote'
 
 
 export default function VideoWatchSection() {
@@ -105,11 +105,10 @@ export default function VideoWatchSection() {
                         <div className="ChannelPic"><img src="Images/lenskart.jpg" style={{ borderRadius: "50%" }} height="50px" width="50px" alt=".." /></div>
                         <div className="ChannelName">Lenskart</div>
                     </div>
-
                 </div>
 
                 <div className="QuizSection">
-                    Quiz Section
+                    <Vedionote/>
                 </div>
             </div>
         </div>

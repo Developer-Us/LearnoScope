@@ -5,8 +5,8 @@ import { useState } from 'react';
 import { useContext } from 'react';
 import LoggedInStatusContext from '../Context/LoggedInStatus/LoggedInStatusContext';
 import ApplicationModeContext from '../Context/ApplicationMode/ApplicationModeContext';
-import UserDataContext from '../Context/UserData/UserDataContext';
 import Spinner from './Spinner';
+// import UserDataContext from '../Context/UserData/UserDataContext';
 
 
 let vidArray = [];
@@ -14,9 +14,8 @@ export default function VideoFeed() {
 
     const is_loggedin = useContext(LoggedInStatusContext);
     const applicationMode = useContext(ApplicationModeContext);
-    const userData = useContext(UserDataContext);
-    const [loading, setLoading] = useState(true);
-
+    // const userData = useContext(UserDataContext);
+  const [loading, setLoading] = useState(true);
     async function getVideoFeed() {
         let userObject = {
             "email": localStorage.getItem('userEmail')
@@ -42,7 +41,7 @@ export default function VideoFeed() {
                     vidArray[i].video_file = data.response[i].video_file;
                 }
                 console.log(vidArray.length);
-                userData.setVideoFeedData(vidArray);
+                //userData.setVideoFeedData(vidArray);
             }
             else {
                 // console.log(data);

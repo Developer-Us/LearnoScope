@@ -12,7 +12,7 @@
     width: 100%;
     height: 100%;
     display: flex;
-    /* border: 1px solid rgb(17, 122, 108); */
+    /* border: 1px solid rgb(17, 122, 108);  */
   }
   
   .VideoPlayer {
@@ -29,7 +29,7 @@
   }
   
   .VideoTag {
-    width: 100%;
+    width: 97%;
     height: 100%;
   }
   
@@ -109,7 +109,7 @@
     height: 80%;
     width: 25%;
     margin: 10px;
-    /* display: none; */
+    display: none; 
   }
   
   
