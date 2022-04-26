@@ -4,26 +4,47 @@ import UserDataContext from "./UserDataContext";
 
 const UserDataState = (props) => {
     const [userEmail, setUserEmail] = useState("");
-    let [roomMessages,setRoomMessages]=useState({});
-    let [videoFeedData,setVideoFeedData]=useState([]);
+    let [roomMessages, setRoomMessages] = useState({});
+    let [videoFeedData, setVideoFeedData] = useState([]);
 
-    let [currentVideoLink,setCurrentVideoLink]=useState("");
-    let [currentVideoTitle,setCurrentVideoTitle]=useState("");
+    let [currentVideoLink, setCurrentVideoLink] = useState("");
+    let [currentVideoTitle, setCurrentVideoTitle] = useState("");
+    let [currentVideoChannelName, setCurrentVideoChannelName] = useState("");
+    let [currentVideoLikes, setCurrentVideoLikes] = useState("");
+    let [currentVideoDesc, setCurrentVideoDesc] = useState("There is no description provided to this video");
+    let [currentVideoNotes, setCurrentVideoNotes] = useState("");
+    let [currentSno, setCurrentSno] = useState("");
 
     const state = {
         "setUserEmail": setUserEmail,
         "userEmail": userEmail,
-        "roomMessages":roomMessages,
-        "setRoomMessages":setRoomMessages,
-        "videoFeedData":videoFeedData,
-        "setVideoFeedData":setVideoFeedData,
+        "roomMessages": roomMessages,
+        "setRoomMessages": setRoomMessages,
+        "videoFeedData": videoFeedData,
+        "setVideoFeedData": setVideoFeedData,
 
         //for video watch section data
-        "currentVideoLink":currentVideoLink,
-        "setCurrentVideoLink":setCurrentVideoLink,
+        "currentVideoLink": currentVideoLink,
+        "setCurrentVideoLink": setCurrentVideoLink,
 
-        "currentVideoTitle":currentVideoTitle,
-        "setCurrentVideoTitle":setCurrentVideoTitle        
+        "currentVideoTitle": currentVideoTitle,
+        "setCurrentVideoTitle": setCurrentVideoTitle,
+
+        "currentVideoChannelName": currentVideoChannelName,
+        "setCurrentVideoChannelName": setCurrentVideoChannelName,
+
+        "currentVideoDesc":currentVideoDesc,
+        "setCurrentVideoDesc":setCurrentVideoDesc,
+
+        "currentVideoLikes": currentVideoLikes,
+        "setCurrentVideoLikes": setCurrentVideoLikes,
+
+        "currentVideoNotes":currentVideoNotes,
+        "setCurrentVideoNotes":setCurrentVideoNotes,
+
+        "currentSno": currentSno,
+        "setCurrentSno": setCurrentSno,
+
     }
 
 

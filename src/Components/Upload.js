@@ -110,7 +110,7 @@ export default function Upload() {
                     <div className="card" id="card_2"style={{ width: "98.7vw", height: "100vh" }}>
                         <div className="mb-3" style={{ marginTop: "20px", width: "98%", paddingLeft: "20px" }}>
                             <label htmlFor="email" className="form-label">Email</label>
-                            <input type="email" className="form-control" id="email" value={localStorage.getItem("userEmail")} name="email"  />
+                            <input type="email" className="form-control" id="email" defaultValue={localStorage.getItem("userEmail")} name="email"  />
                         </div>
                         <div className="mb-3" style={{ marginTop: "20px", width: "98%", paddingLeft: "20px" }}>
                             <label htmlFor="keyword" className="form-label">Keywords</label>

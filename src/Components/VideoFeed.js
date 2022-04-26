@@ -6,7 +6,7 @@ import { useContext } from 'react';
 import LoggedInStatusContext from '../Context/LoggedInStatus/LoggedInStatusContext';
 import ApplicationModeContext from '../Context/ApplicationMode/ApplicationModeContext';
 import Spinner from './Spinner';
-// import UserDataContext from '../Context/UserData/UserDataContext';
+import UserDataContext from '../Context/UserData/UserDataContext';
 
 
 let vidArray = [];
@@ -14,8 +14,8 @@ export default function VideoFeed() {
 
     const is_loggedin = useContext(LoggedInStatusContext);
     const applicationMode = useContext(ApplicationModeContext);
-    // const userData = useContext(UserDataContext);
-  const [loading, setLoading] = useState(true);
+    const userData = useContext(UserDataContext);
+    const [loading, setLoading] = useState(true);
     async function getVideoFeed() {
         let userObject = {
             "email": localStorage.getItem('userEmail')
@@ -27,7 +27,7 @@ export default function VideoFeed() {
             },
             body: JSON.stringify(userObject),
         }).then(response => response.json()).then((data) => {
-            setLoading(false);
+            // setLoading(false);
             if (data.status === 200) {
                 console.log(data);
                 let profile_pic_src = "https://developerus.herokuapp.com" + data.profile_pic.profile_pic;
@@ -39,17 +39,22 @@ export default function VideoFeed() {
                     vidArray[i].thumbnail = data.response[i].video_thumbnail;
                     vidArray[i].sno = data.response[i].sno;
                     vidArray[i].video_file = data.response[i].video_file;
+                    vidArray[i].video_views = data.response[i].video_views;
+                    vidArray[i].timestamp = data.response[i].timestamp;
+                    vidArray[i].channelName = data.response[i].username;
+                    vidArray[i].video_likes = data.response[i].video_likes;
+                    vidArray[i].video_desc = data.response[i].video_desc;
+                    vidArray[i].notes_file = "https://developerus.herokuapp.com" + data.response[i].notes_file;
+                    vidArray[i].sno = data.response[i].sno;
                 }
-                console.log(vidArray.length);
-                //userData.setVideoFeedData(vidArray);
+                // console.log(vidArray.length);
+                userData.setVideoFeedData(vidArray);
             }
             else {
-                // console.log(data);
             }
+            setLoading(false);
         });
     }
-    console.log("outside the func : ");
-    console.log(vidArray.length);
     useEffect(() => {
         if (applicationMode.mode === "light") {
             document.getElementById("wishUser").style.color = "black";
@@ -86,13 +91,14 @@ export default function VideoFeed() {
             </div>
             <div id="wishUser" style={{ display: "none" }} className="text-center container my-3 mx-auto p-3 mb-5 fs-2"><span id="wishUser-time"></span> <strong id="wishUser-username"></strong> !</div>
             <div className="d-flex my-5" style={{ flexWrap: "wrap", justifyContent: "center" }}>
-                {loading && <Spinner />}
+                {loading && is_loggedin.loggedin && <Spinner />}
+                {!is_loggedin.loggedin && "Kindly Login First"}
                 {
-                 !loading &&
+                    !loading &&
                     vidArray.map((val) => {
                         return (
                             <>
-                                <VideoCard key={val.sno} sno={val.sno} videoTitle={val.title} videoThumbnail={"https://developerus.herokuapp.com" + val.thumbnail} channelName="T-Series" views="200" videoUploadingTime="13 jan 2022" />
+                                <VideoCard key={val.sno + 4} sno={val.sno} videoTitle={val.title} videoThumbnail={"https://developerus.herokuapp.com" + val.thumbnail} channelName={val.channelName} views={val.video_views} videoUploadingTime={(val.timestamp).split("T")[0]} />
                             </>
                         )
                     })
