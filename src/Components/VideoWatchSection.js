@@ -130,7 +130,7 @@ export default function VideoWatchSection() {
                         <div className="accordion-item">
                             <h2 className="accordion-header">
                                 <button className="accordion-button ChannelInfo" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    <div className="ChannelPic"><img src="Images/lenskart.jpg" style={{ borderRadius: "50%" }} height="50px" width="50px" alt=".." /></div>
+                                    <div className="ChannelPic"><img src={userData.currentVideoChannelPhoto} style={{ borderRadius: "50%" }} height="50px" width="50px" alt=".." /></div>
                                     <div className="ChannelName">{userData.currentVideoChannelName}</div>
                                 </button>
                             </h2>

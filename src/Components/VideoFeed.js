@@ -45,6 +45,7 @@ export default function VideoFeed() {
                     vidArray[i].video_likes = data.response[i].video_likes;
                     vidArray[i].video_desc = data.response[i].video_desc;
                     vidArray[i].notes_file = `${userData.backendApi}` + data.response[i].notes_file;
+                    vidArray[i].video_uploader_img = `${userData.backendApi}` + data.response[i].video_uploader_img;
                     vidArray[i].sno = data.response[i].sno;
                 }
                 // console.log(vidArray.length);
@@ -98,7 +99,7 @@ export default function VideoFeed() {
                     vidArray.map((val) => {
                         return (
                             <>
-                                <VideoCard key={val.sno + 4} sno={val.sno} videoTitle={val.title} videoThumbnail={"https://developerus.herokuapp.com" + val.thumbnail} channelName={val.channelName} views={val.video_views} videoUploadingTime={(val.timestamp).split("T")[0]} />
+                                <VideoCard key={val.sno + 4} sno={val.sno} videoTitle={val.title} videoChannelPhoto={val.video_uploader_img} videoThumbnail={`${userData.backendApi}${val.thumbnail}`} channelName={val.channelName} views={val.video_views} videoUploadingTime={(val.timestamp).split("T")[0]} />
                             </>
                         )
                     })

@@ -13,6 +13,7 @@ const UserDataState = (props) => {
     let [currentVideoLikes, setCurrentVideoLikes] = useState("");
     let [currentVideoDesc, setCurrentVideoDesc] = useState("There is no description provided to this video");
     let [currentVideoNotes, setCurrentVideoNotes] = useState("");
+    let [currentVideoChannelPhoto, setCurrentVideoChannelPhoto] = useState("");
     let [currentSno, setCurrentSno] = useState("");
 
     const backendApi = "http://127.0.0.1:8000";
@@ -43,6 +44,9 @@ const UserDataState = (props) => {
 
         "currentVideoNotes": currentVideoNotes,
         "setCurrentVideoNotes": setCurrentVideoNotes,
+
+        "currentVideoChannelPhoto":currentVideoChannelPhoto,
+        "setCurrentVideoChannelPhoto":setCurrentVideoChannelPhoto,
 
         "currentSno": currentSno,
         "setCurrentSno": setCurrentSno,

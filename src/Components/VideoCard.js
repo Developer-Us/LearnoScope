@@ -21,6 +21,7 @@ export default function VideoCard(props) {
                 userData.setCurrentSno((userData.videoFeedData[i].sno));
                 userData.setCurrentVideoDesc((userData.videoFeedData[i].video_desc));
                 userData.setCurrentVideoNotes((userData.videoFeedData[i].notes_file));
+                userData.setCurrentVideoChannelPhoto((userData.videoFeedData[i].video_uploader_img));
                 //for increasing video views
                 increaseViewCount(userData.videoFeedData[i].sno);
 
@@ -106,7 +107,7 @@ export default function VideoCard(props) {
                 </Link>
                 <div id="VedioDetail">
 
-                    <span id="logo"><img src="Images/NetflixLogo.png" style={{ borderRadius: "50%" }} height="40px" width="40px" alt=".." /></span>
+                    <span id="logo"><img src={props.videoChannelPhoto} style={{ borderRadius: "50%" }} height="40px" width="40px" alt=".." /></span>
                     <ul style={{ marginLeft: "-18px" }}>
                         <li><div style={{ width: "250px", height: "24px", overflow: "hidden", fontWeight: "bold" }}> {props.videoTitle}</div></li>
                         <li>{props.channelName}</li>
