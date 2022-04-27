@@ -7,6 +7,7 @@ import LoggedInStatusContext from '../Context/LoggedInStatus/LoggedInStatusConte
 import ApplicationModeContext from '../Context/ApplicationMode/ApplicationModeContext';
 import Spinner from './Spinner';
 import UserDataContext from '../Context/UserData/UserDataContext';
+import LandingInterface from "../Components/LandingPage/LandingInterface";
 
 
 let vidArray = [];
@@ -90,9 +91,9 @@ export default function VideoFeed() {
                 <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
             <div id="wishUser" style={{ display: "none" }} className="text-center container my-3 mx-auto p-3 mb-5 fs-2"><span id="wishUser-time"></span> <strong id="wishUser-username"></strong> !</div>
-            <div className="d-flex my-5" style={{ flexWrap: "wrap", justifyContent: "center" }}>
+            <div style={{zIndex:"-3"}}>
                 {loading && is_loggedin.loggedin && <Spinner />}
-                {!is_loggedin.loggedin && "Kindly Login First"}
+                {!is_loggedin.loggedin && <LandingInterface/>}
                 {
                     !loading &&
                     vidArray.map((val) => {
