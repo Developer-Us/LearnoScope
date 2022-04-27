@@ -38,6 +38,7 @@ export default function Navbar() {
         }).then(response => response.json()).then((data) => {
             if (data.status === 200) {
                 localStorage.removeItem("userEmail");
+                localStorage.clear();
                 is_loggedin.setLoggedin(false);
                 document.getElementById("leftBar-LoginBtn").click();
                 document.getElementById("logoutAlert").style.display = "block";

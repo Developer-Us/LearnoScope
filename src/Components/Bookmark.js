@@ -1,44 +1,64 @@
 import React from "react";
-import BookmarkContainer from "./BookmarkContainer";
+import { useEffect } from "react";
+import { useContext } from "react";
+import LoggedInStatusContext from '../Context/LoggedInStatus/LoggedInStatusContext';
 
 export default function Bookmark() {
-  return (
-    <>
-      <div className="ms-l-5">
-        <div className="fs-2 mb-2">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="48"
-            height="48"
-            fill="currentColor"
-            class="bi bi-journal-bookmark"
-            viewBox="0 0 16 16"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M6 8V1h1v6.117L8.743 6.07a.5.5 0 0 1 .514 0L11 7.117V1h1v7a.5.5 0 0 1-.757.429L9 7.083 6.757 8.43A.5.5 0 0 1 6 8z"
-            />
-            <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z" />
-            <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z" />
-          </svg>
-          Bookmark
+  const is_loggedin = useContext(LoggedInStatusContext);
+
+  useEffect(() => {
+    if (localStorage.getItem("userEmail") !== null) {
+      is_loggedin.setLoggedin(true);
+  }
+    if (is_loggedin.loggedin === true) {
+      getBookmarkData(); // for getting Bookmark Data
+    }
+  })
+
+  async function getBookmarkData() {
+    let userObject = {
+      "email": localStorage.getItem('userEmail')
+    }
+    await fetch('https://developerus.herokuapp.com/getUserBookmark/', {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(userObject),
+    }).then(response => response.json()).then((data) => {
+      if (data.status === 200) {
+        if (data.response.length !== 0) {
+          document.getElementById("Bookmarks").innerHTML = `
+          <div class="my-4 ms-l-5">
+          <div class="text-center fs-2 mb-2">
+            📑Your Bookmark's
+          </div>
+  
+  
         </div>
+  
+        <div class="row row-cols-1 row-cols-md-4 g-4 p-3 m-3">
+  
+        </div>
+           `;
+          console.log(data);
 
-        
+        }
+
+        else {
+          console.log(data);
+        }
+      }
+      else {
+        console.log(data);
+      }
+    }, []);
+  }
+  return (
+    <div id="Bookmarks">
+      <div className="my-4 text-center fs-2 mb-2">
+        📑You don't have any bookmarks yet !
       </div>
-      <hr />
-
-      <div className="row row-cols-1 row-cols-md-4 g-4 p-3 m-3">
-        <BookmarkContainer />
-        <BookmarkContainer />
-        <BookmarkContainer />
-        <BookmarkContainer />
-        <BookmarkContainer />
-        <BookmarkContainer />
-        <BookmarkContainer />
-      </div>
-
-        
-    </>
+    </div>
   );
 }

@@ -4,14 +4,53 @@ import '../Styles/VideoCard.css';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import LoggedInStatusContext from '../Context/LoggedInStatus/LoggedInStatusContext';
+import UserDataContext from '../Context/UserData/UserDataContext';
 
 export default function VideoCard(props) {
     const is_loggedin = useContext(LoggedInStatusContext);
+    const userData = useContext(UserDataContext);
+
+    const handleVideoCardClick = (id) => {
+        //for a particular video click
+        for (var i = 0; i < userData.videoFeedData.length; i++) {
+            if (userData.videoFeedData[i].sno === id) {
+                userData.setCurrentVideoLink("https://developerus.herokuapp.com" + (userData.videoFeedData[i].video_file));
+                userData.setCurrentVideoTitle((userData.videoFeedData[i].title));
+                userData.setCurrentVideoChannelName((userData.videoFeedData[i].channelName));
+                userData.setCurrentVideoLikes((userData.videoFeedData[i].video_likes));
+                userData.setCurrentSno((userData.videoFeedData[i].sno));
+                userData.setCurrentVideoDesc((userData.videoFeedData[i].video_desc));
+                userData.setCurrentVideoNotes((userData.videoFeedData[i].notes_file));
+                //for increasing video views
+                increaseViewCount(userData.videoFeedData[i].sno);
+                break;
+            }
+        }
+    }
+
+    async function increaseViewCount(sno) {
+        let userObject = {
+            "sno": sno,
+            "email": localStorage.getItem("userEmail")
+        }
+        await fetch('https://developerus.herokuapp.com/viewVideo/', {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(userObject),
+        }).then(response => response.json()).then((data) => {
+            if (data.status === 200) {
+            }
+            else {
+            }
+        });
+    }
 
     if (is_loggedin.loggedin === true) {
         return (
             <Link to="/videoWatchSection" style={{ textDecoration: "none", color: "black" }} >
-                <div id="videoCard" className="card my-3 mx-3 shadow  bg-body rounded" style={{ "width": "21rem" }}>
+                <div id={props.sno} onClick={() => { handleVideoCardClick(props.sno) }} className="videoCard card my-3 mx-3 shadow  bg-body rounded" style={{ "width": "21rem" }}>
                     <div style={{ "width": "21rem", "height": "12rem", backgroundColor: "grey" }}>
                         <img src={props.videoThumbnail} alt="loading.." style={{ "width": "21rem", "height": "12rem" }} />
                     </div>
@@ -31,7 +70,7 @@ export default function VideoCard(props) {
     else {
         return (
             <Link to="/login" style={{ textDecoration: "none", color: "black" }} >
-                <div id="videoCard" className="card my-3 mx-3 shadow  bg-body rounded" style={{ "width": "21rem" }}>
+                <div className="videoCard card my-3 mx-3 shadow  bg-body rounded" style={{ "width": "21rem" }}>
                     <div style={{ "width": "21rem", "height": "12rem", backgroundColor: "grey" }}>
                         <img src={props.videoThumbnail} alt="loading.." style={{ "width": "21rem", "height": "12rem" }} />
                     </div>

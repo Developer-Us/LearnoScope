@@ -3,23 +3,24 @@ import { useEffect } from "react";
 import { useContext } from "react";
 import LoggedInStatusContext from '../Context/LoggedInStatus/LoggedInStatusContext';
 
-export default function History() {
+export default function YourVideoSection() {
   const is_loggedin = useContext(LoggedInStatusContext);
 
   useEffect(() => {
     if (localStorage.getItem("userEmail") !== null) {
-      is_loggedin.setLoggedin(true);
-  }
+        is_loggedin.setLoggedin(true);
+    }
+    
     if (is_loggedin.loggedin === true) {
-      getHistoryData(); // for getting Bookmark Data
+      getYourVideoData(); // for getting Bookmark Data
     }
   })
 
-  async function getHistoryData() {
+  async function getYourVideoData() {
     let userObject = {
       "email": localStorage.getItem('userEmail')
     }
-    await fetch('https://developerus.herokuapp.com/getUserHistory/', {
+    await fetch('https://developerus.herokuapp.com/getUserBookmark/', {
       method: "POST",
       headers: {
         'Content-Type': 'application/json',
@@ -31,7 +32,7 @@ export default function History() {
           document.getElementById("Bookmarks").innerHTML = `
           <div class="my-4 ms-l-5">
           <div class="text-center fs-2 mb-2">
-            📑Your History
+            📑Your Bookmark's
           </div>
   
   
@@ -57,7 +58,7 @@ export default function History() {
   return (
     <div id="Bookmarks">
       <div className="my-4 text-center fs-2 mb-2">
-      🧑‍💻 You Haven't watched any video yet !
+      😳You Haven't Uploaded any video yet !
       </div>
     </div>
   );

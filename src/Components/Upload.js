@@ -1,14 +1,19 @@
-import React from 'react'
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useContext } from 'react';
 import ApplicationModeContext from '../Context/ApplicationMode/ApplicationModeContext';
+import LoggedInStatusContext from '../Context/LoggedInStatus/LoggedInStatusContext';
 
 
 export default function Upload() {
     const applicationMode = useContext(ApplicationModeContext);
+    const is_loggedin = useContext(LoggedInStatusContext);
 
     useEffect(() => {
+        if (localStorage.getItem("userEmail") !== null) {
+            is_loggedin.setLoggedin(true);
+          }
+
         if (applicationMode.mode === "light")
         {
             document.getElementById("in1").style.color = "black";
@@ -35,7 +40,6 @@ export default function Upload() {
     })
     /*State Variable Declaration Section*/
     const [filePath, setFilePath] = useState(" ");
-    const [mail, setMail] = useState();
     const getFile = () => {
         try {
             var input = document.getElementById('SelectFile');
@@ -60,9 +64,6 @@ export default function Upload() {
             alert("Please select a file");
         }
 
-    }
-    const chgMail = (e) => {
-        setMail(e.target.value);
     }
     const getFile1 = () => {
         document.getElementById('in1').style.display = 'none';
@@ -109,7 +110,7 @@ export default function Upload() {
                     <div className="card" id="card_2"style={{ width: "98.7vw", height: "100vh" }}>
                         <div className="mb-3" style={{ marginTop: "20px", width: "98%", paddingLeft: "20px" }}>
                             <label htmlFor="email" className="form-label">Email</label>
-                            <input type="email" className="form-control" id="email" value={mail} name=" email" onChange={chgMail} />
+                            <input type="email" className="form-control" id="email" defaultValue={localStorage.getItem("userEmail")} name="email"  />
                         </div>
                         <div className="mb-3" style={{ marginTop: "20px", width: "98%", paddingLeft: "20px" }}>
                             <label htmlFor="keyword" className="form-label">Keywords</label>
