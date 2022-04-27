@@ -15,6 +15,8 @@ const UserDataState = (props) => {
     let [currentVideoNotes, setCurrentVideoNotes] = useState("");
     let [currentSno, setCurrentSno] = useState("");
 
+    const backendApi = "http://127.0.0.1:8000";
+
     const state = {
         "setUserEmail": setUserEmail,
         "userEmail": userEmail,
@@ -33,18 +35,21 @@ const UserDataState = (props) => {
         "currentVideoChannelName": currentVideoChannelName,
         "setCurrentVideoChannelName": setCurrentVideoChannelName,
 
-        "currentVideoDesc":currentVideoDesc,
-        "setCurrentVideoDesc":setCurrentVideoDesc,
+        "currentVideoDesc": currentVideoDesc,
+        "setCurrentVideoDesc": setCurrentVideoDesc,
 
         "currentVideoLikes": currentVideoLikes,
         "setCurrentVideoLikes": setCurrentVideoLikes,
 
-        "currentVideoNotes":currentVideoNotes,
-        "setCurrentVideoNotes":setCurrentVideoNotes,
+        "currentVideoNotes": currentVideoNotes,
+        "setCurrentVideoNotes": setCurrentVideoNotes,
 
         "currentSno": currentSno,
         "setCurrentSno": setCurrentSno,
 
+
+        //Backend API 
+        "backendApi":backendApi
     }
 
 

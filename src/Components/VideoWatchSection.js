@@ -36,7 +36,7 @@ export default function VideoWatchSection() {
             "sno": sno,
             "email": localStorage.getItem("userEmail")
         }
-        await fetch('https://developerus.herokuapp.com/likeVideo/', {
+        await fetch(`${userData.backendApi}/likeVideo/`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',

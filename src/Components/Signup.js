@@ -1,9 +1,12 @@
 import React from "react";
 import '../Styles/Signup.css';
+import { useContext } from "react";
 import { useEffect } from 'react';
+import UserDataContext from '../Context/UserData/UserDataContext';
 
 
 export default function Signup() {
+  const userData = useContext(UserDataContext);
 
 
   useEffect(() => {
@@ -19,7 +22,7 @@ export default function Signup() {
   return (
     <div id="Signup" className="w-25 shadow p-3 mb-5 bg-body mx-auto my-5 " style={{ height: "58rem", display: "flex"}}>
       <div className='container mx-3 my-3'>
-        <form method="post" encType="multipart/form-data" action="https://developerus.herokuapp.com/register/">
+        <form method="post" encType="multipart/form-data" action={`${userData.backendApi}/register/`}>
           <div id="Proflie_picture_selector" className="text-center"><svg xmlns="http://www.w3.org/2000/svg" width="90" height="90" fill="currentColor" className="bi bi-person-circle" viewBox="0 0 16 16">
             <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
             <path fillRule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />

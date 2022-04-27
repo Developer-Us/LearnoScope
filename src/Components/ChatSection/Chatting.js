@@ -47,7 +47,7 @@ export default function Chatting() {
       "message_value": document.getElementById("messageInput").value
     }
    
-    await fetch('https://developerus.herokuapp.com/SendMessage/', {
+    await fetch(`${userData.backendApi}/SendMessage/`, {
       method: "POST",
       headers: {
         'Content-Type': 'application/json',
@@ -71,7 +71,7 @@ export default function Chatting() {
 
   async function updateData() {
 try{
-  await fetch('https://developerus.herokuapp.com/GetChatRoom/', {
+  await fetch(`${userData.backendApi}/GetChatRoom/`, {
     method: "POST",
     headers: {
       'Content-Type': 'application/json',

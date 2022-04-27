@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { useEffect } from 'react';
 import LoggedInStatusContext from '../../Context/LoggedInStatus/LoggedInStatusContext';
+import UserDataContext from '../../Context/UserData/UserDataContext';
 
 
 export default function JoinRoom() {
   const is_loggedin = useContext(LoggedInStatusContext);
+  const userData = useContext(UserDataContext);
 
   useEffect(() => {
     if (localStorage.getItem("userEmail") !== null) {
@@ -37,7 +39,7 @@ export default function JoinRoom() {
 
     localStorage.setItem("roomName", document.getElementById("roomName").value);
     localStorage.setItem("roomPass",document.getElementById("roomPass").value)
-    await fetch('https://developerus.herokuapp.com/GetChatRoom/', {
+    await fetch(`${userData.backendApi}/GetChatRoom/`, {
       method: "POST",
       headers: {
         'Content-Type': 'application/json',
