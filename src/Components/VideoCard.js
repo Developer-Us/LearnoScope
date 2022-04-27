@@ -14,7 +14,7 @@ export default function VideoCard(props) {
         //for a particular video click
         for (var i = 0; i < userData.videoFeedData.length; i++) {
             if (userData.videoFeedData[i].sno === id) {
-                userData.setCurrentVideoLink("https://developerus.herokuapp.com" + (userData.videoFeedData[i].video_file));
+                userData.setCurrentVideoLink(`${userData.backendApi}` + (userData.videoFeedData[i].video_file));
                 userData.setCurrentVideoTitle((userData.videoFeedData[i].title));
                 userData.setCurrentVideoChannelName((userData.videoFeedData[i].channelName));
                 userData.setCurrentVideoLikes((userData.videoFeedData[i].video_likes));
@@ -42,7 +42,7 @@ export default function VideoCard(props) {
             "sno": sno,
             "email": localStorage.getItem("userEmail")
         }
-        await fetch('https://developerus.herokuapp.com/viewVideo/', {
+        await fetch(`${userData.backendApi}/viewVideo/`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
@@ -61,7 +61,7 @@ export default function VideoCard(props) {
             "sno": sno,
             "email": localStorage.getItem("userEmail")
         }
-        await fetch('https://developerus.herokuapp.com/addToHistory/', {
+        await fetch(`${userData.backendApi}/addToHistory/`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
@@ -79,7 +79,7 @@ export default function VideoCard(props) {
             "sno": sno,
             "email": localStorage.getItem("userEmail")
         }
-        await fetch('https://developerus.herokuapp.com/addToBookmark/', {
+        await fetch(`${userData.backendApi}/addToBookmark/`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',

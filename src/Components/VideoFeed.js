@@ -20,7 +20,7 @@ export default function VideoFeed() {
         let userObject = {
             "email": localStorage.getItem('userEmail')
         }
-        await fetch('https://developerus.herokuapp.com/getVideoFeed/', {
+        await fetch(`${userData.backendApi}/getVideoFeed/`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
@@ -30,7 +30,7 @@ export default function VideoFeed() {
             // setLoading(false);
             if (data.status === 200) {
                 console.log(data);
-                let profile_pic_src = "https://developerus.herokuapp.com" + data.profile_pic.profile_pic;
+                let profile_pic_src = `${userData.backendApi}` + data.profile_pic.profile_pic;
                 document.getElementById("dashboard-user-profile-pic").src = profile_pic_src;
                 for (var i = 0; i < data.response.length; i++) {
                     vidArray[i] = {};
@@ -44,7 +44,7 @@ export default function VideoFeed() {
                     vidArray[i].channelName = data.response[i].username;
                     vidArray[i].video_likes = data.response[i].video_likes;
                     vidArray[i].video_desc = data.response[i].video_desc;
-                    vidArray[i].notes_file = "https://developerus.herokuapp.com" + data.response[i].notes_file;
+                    vidArray[i].notes_file = `${userData.backendApi}` + data.response[i].notes_file;
                     vidArray[i].sno = data.response[i].sno;
                 }
                 // console.log(vidArray.length);

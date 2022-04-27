@@ -3,11 +3,13 @@ import { useEffect } from 'react';
 import { useContext } from 'react';
 import ApplicationModeContext from '../Context/ApplicationMode/ApplicationModeContext';
 import LoggedInStatusContext from '../Context/LoggedInStatus/LoggedInStatusContext';
+import UserDataContext from '../Context/UserData/UserDataContext';
 
 
 export default function Upload() {
     const applicationMode = useContext(ApplicationModeContext);
     const is_loggedin = useContext(LoggedInStatusContext);
+    const userData = useContext(UserDataContext);
 
     useEffect(() => {
         if (localStorage.getItem("userEmail") !== null) {
@@ -71,7 +73,7 @@ export default function Upload() {
         document.getElementById('in3').style.display = 'block';
     }
     return (
-        <form id="FormForUpload" method="POST" encType='multipart/form-data' action=" https://developerus.herokuapp.com/uploadVideo/" onSubmit={(e) => {
+        <form id="FormForUpload" method="POST" encType='multipart/form-data' action={`${userData.backendApi}/uploadVideo/`} onSubmit={(e) => {
             // e.preventDefault();
             if (document.getElementById('thumnail').value.length === 0)
                 alert("Thumnail can't be empty :( ");

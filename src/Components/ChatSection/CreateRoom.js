@@ -3,9 +3,11 @@ import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useContext } from 'react';
 import LoggedInStatusContext from '../../Context/LoggedInStatus/LoggedInStatusContext';
+import UserDataContext from '../../Context/UserData/UserDataContext';
 
 export default function CreateRoom() {
   const is_loggedin = useContext(LoggedInStatusContext);
+  const userData = useContext(UserDataContext);
 
   useEffect(() => {
     if (localStorage.getItem("userEmail") !== null) {
@@ -34,7 +36,7 @@ export default function CreateRoom() {
       "email": localStorage.getItem("userEmail")
     }
 
-    await fetch('https://developerus.herokuapp.com/makeNewChatRoom/', {
+    await fetch(`${userData.backendApi}/makeNewChatRoom/`, {
       method: "POST",
       headers: {
         'Content-Type': 'application/json',

@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import { useContext } from 'react';
 import LoggedInStatusContext from '../Context/LoggedInStatus/LoggedInStatusContext';
 import ApplicationModeContext from '../Context/ApplicationMode/ApplicationModeContext';
+import UserDataContext from '../Context/UserData/UserDataContext';
 
 
 
@@ -12,6 +13,7 @@ import ApplicationModeContext from '../Context/ApplicationMode/ApplicationModeCo
 export default function Navbar() {
     const is_loggedin = useContext(LoggedInStatusContext);
     const applicationMode = useContext(ApplicationModeContext);
+    const userData = useContext(UserDataContext);
 
     const toggleProfileOption = () => {
         if (document.getElementById("profileDropdown").style.display === "none") {
@@ -29,7 +31,7 @@ export default function Navbar() {
         }
 
 
-        await fetch('https://developerus.herokuapp.com/logoutUser/', {
+        await fetch(`${userData.backendApi}/logoutUser/`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',

@@ -7,6 +7,8 @@ import LoggedInStatusContext from '../../Context/LoggedInStatus/LoggedInStatusCo
 
 
 
+
+
 export default function ChatInterface() {
   const applicationMode = useContext(ApplicationModeContext);
   const is_loggedin = useContext(LoggedInStatusContext);
