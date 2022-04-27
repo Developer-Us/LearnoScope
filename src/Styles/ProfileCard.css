@@ -1,4 +1,30 @@
-
-#ProfilePic,#name{
-    display : inline-block;
+@media screen and (max-width: 1346px) {
+    #ProfilePic{
+        height: 150px;
+        width: 150px;
+    }
+}
+@media screen and (max-width: 1130px) {
+    #ProfilePic{
+        height: 120px;
+        width: 120px;
+    }
+}
+@media screen and (max-width: 802px) {
+    #ProfilePic{
+        height: 100px;
+        width: 100px;
+    }
+}
+@media screen and (max-width: 701px) {
+    #ProfilePic{
+        height: 80px;
+        width: 80px;
+    }
+}
+@media screen and (max-width: 541px) {
+    #ProfilePic{
+        height: 60px;
+        width: 60px;
+    }
 }
